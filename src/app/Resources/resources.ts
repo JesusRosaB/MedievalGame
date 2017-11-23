@@ -1,4 +1,4 @@
-export class Resource {
+export class resources {
   name: string;
   quantity: number;
 }

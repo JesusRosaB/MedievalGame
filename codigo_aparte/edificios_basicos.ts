@@ -1,7 +1,6 @@
-﻿/*
+/*
 Implementación incompleta de todos los edificios para ponerse en componentes.
 Cosas pendientes:
-- Los constructores.
 - La implementación de los eventos modificadores. ¿Mover los modificadores
   a otra clase? ¿Usar función timeout?
 - El Cuartel
@@ -9,30 +8,59 @@ Cosas pendientes:
   ningún edificio que te permita comprar distintas unidades según su nivel.)
 - La implementación que he hecho de Armeria no me acaba de convencer. ¿Debería pasarse una
   Tropa cuando estamos mejorando su clase en general?
-- Se necesitan algunos métodos extra en Recursos y Tropa. Concretamente un
-  identificador de Recurso y un identificador de tipo de Tropa.
+- Se necesitan algunos métodos extra en Resource y Troop.
+  Resource: getName() y getId()
+  Troop: getJobId()
+- Los arrays se podrían cambiar a maps.
 */
-export class Edificio {
+export class Building {
     protected level: number;
     protected upgradeCost: number[];
     protected name: string;
 
+    constructor(level: number, upgradeCost: number[], name: string) {
+        this.level = level;
+        this.upgradeCost = upgradeCost;
+        this.name = name;
+    }
     getLevel(): number {
         return this.level;
+    }
+
+    levelCost(): number {
+      return this.upgradeCost[this.level];
     }
 
     levelUp(): void {
         this.level++;
     }
 
+    getName(): string {
+      return this.name;
+    }
+
 }
 
-export class Mercado extends Edificio {
+export class Market extends Building {
     private basePurchasePrices: number[];
     private baseSalePrices: number[];
     private levelGrowth: number;
     private purchaseMod: number[];
     private saleMod: number[];
+
+    constructor(level: number, upgradeCost: number[], basePurchasePrices: number[],
+      baseSalePrices: number[], levelGrowth: number) {
+        super(level, upgradeCost, "market");
+        this.basePurchasePrices = basePurchasePrices;
+        this.baseSalePrices = baseSalePrices;
+        this.levelGrowth = levelGrowth;
+        for (let i of this.purchaseMod) {
+          i = 1;
+        }
+        for (let i of this.saleMod) {
+          i = 1;
+        }
+    }
 
     purchaseValue(amount: number, res: Recurso): number {
         return this.getPurchasePrices()[res.getId()] * amount;
@@ -74,11 +102,18 @@ export class Mercado extends Edificio {
     }
 }
 
-export class Recolector extends Edificio {
+export class Collector extends Building {
+    private resource: Resource;
     private baseYield: number;
     private levelGrowth: number;
     private mod: number;
 
+    constructor(level: number, upgradeCost: number[], resource: Resource, baseYield: number, levelGrowth: number) {
+      super(level, upgradeCost, "collector of "+resource.getName());
+      this.baseYield = baseYield;
+      this.levelGrowth = levelGrowth;
+      this.mod = 1;
+    }
     yieldValue(): number{
         return this.baseYield * this.level * this.mod;
     }
@@ -90,11 +125,19 @@ export class Recolector extends Edificio {
     }
 }
 
-export class Ayuntamiento extends Edificio {
+export class TownHall extends Building {
     private baseResourceLimit: number;
     private baseUnitLimit: number;
     private levelResGrowth: number;
     private levelUnitGrowth: number;
+
+    constructor(level: number, upgradeCost: number[], name: string, baseResourceLimit: number, baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
+      super(level, upgradeCost, name);
+      this.baseResourceLimit = baseResourceLimit;
+      this.baseUnitLimit = baseUnitLimit;
+      this.levelResGrowth = levelResGrowth;
+      this.levelUnitGrowth = levelUnitGrowth;
+    }
 
     getResourceLimit(): number {
         return this.baseResourceLimit + this.levelResGrowth * this.level;
@@ -105,12 +148,31 @@ export class Ayuntamiento extends Edificio {
     }
 }
 
-export class Armeria extends Edificio {
+export class Armory extends Building {
     private unitUpgradeCost: number[];
     private costGrowth: number[];
+    private mod: number[];
 
-    public getUpgradeCost(unit: Tropa): number {
+    constructor(level: number, upgradeCost: number[], unitUpgradeCost: number[], costGrowth: number[]) {
+      super(level, upgradeCost, "armory");
+      this.costGrowth = costGrowth;
+      for (let i of this.mod){
+        i = 1;
+      }
+    }
+
+    public getUpgradeCost(unit: Troop): number {
         return this.unitUpgradeCost[unit.jobId()] + this.costGrowth[unit.jobId()] * unit.getLevel();
     }
 
+}
+
+export class Barracks extends Building {
+    private mod: number;
+
+    constructor(level: number, upgradeCost: number[]) {
+        super(level, upgradeCost, "barracks");
+      this.mod = 1;
+    }
+    
 }
