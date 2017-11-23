@@ -10,7 +10,7 @@ Cosas pendientes:
   Tropa cuando estamos mejorando su clase en general?
 - Se necesitan algunos métodos extra en Resource y Troop.
   Resource: getName() y getId()
-  Troop: getJobId()
+  Troop: jobId()
 - Los arrays se podrían cambiar a maps.
 */
 export class Building {
@@ -109,10 +109,10 @@ export class Collector extends Building {
     private mod: number;
 
     constructor(level: number, upgradeCost: number[], resource: Resource, baseYield: number, levelGrowth: number) {
-      super(level, upgradeCost, "collector of "+resource.getName());
-      this.baseYield = baseYield;
-      this.levelGrowth = levelGrowth;
-      this.mod = 1;
+        super(level, upgradeCost, "collector of "+resource.getName());
+        this.baseYield = baseYield;
+        this.levelGrowth = levelGrowth;
+        this.mod = 1;
     }
     yieldValue(): number{
         return this.baseYield * this.level * this.mod;
@@ -132,11 +132,11 @@ export class TownHall extends Building {
     private levelUnitGrowth: number;
 
     constructor(level: number, upgradeCost: number[], name: string, baseResourceLimit: number, baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
-      super(level, upgradeCost, name);
-      this.baseResourceLimit = baseResourceLimit;
-      this.baseUnitLimit = baseUnitLimit;
-      this.levelResGrowth = levelResGrowth;
-      this.levelUnitGrowth = levelUnitGrowth;
+        super(level, upgradeCost, name);
+        this.baseResourceLimit = baseResourceLimit;
+        this.baseUnitLimit = baseUnitLimit;
+        this.levelResGrowth = levelResGrowth;
+        this.levelUnitGrowth = levelUnitGrowth;
     }
 
     getResourceLimit(): number {
@@ -161,18 +161,24 @@ export class Armory extends Building {
       }
     }
 
-    public getUpgradeCost(unit: Troop): number {
+    getUpgradeCost(unit: Troop): number {
         return this.unitUpgradeCost[unit.jobId()] + this.costGrowth[unit.jobId()] * unit.getLevel();
     }
+    /*
+    getUpgradeCost(job: Job): number {
+        return job.upgradeCost() * this.mod[job.id()];
+    }
+    */
 
 }
 
 export class Barracks extends Building {
-    private mod: number;
+  private mod: number;
 
-    constructor(level: number, upgradeCost: number[]) {
-        super(level, upgradeCost, "barracks");
-      this.mod = 1;
-    }
-    
+  constructor(level: number, upgradeCost: number[]) {
+    super(level, upgradeCost, "barracks");
+    this.mod = 1;
+  }
+
+
 }
