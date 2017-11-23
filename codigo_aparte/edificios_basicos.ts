@@ -4,13 +4,7 @@ Cosas pendientes:
 - La implementación de los eventos modificadores. ¿Mover los modificadores
   a otra clase? ¿Usar función timeout?
 - El Cuartel
-  (Hay que revisar la clase Cuartel en el diagrama, tal como está ahora no hay
-  ningún edificio que te permita comprar distintas unidades según su nivel.)
-- La implementación que he hecho de Armeria no me acaba de convencer. ¿Debería pasarse una
-  Tropa cuando estamos mejorando su clase en general?
-- Se necesitan algunos métodos extra en Resource y Troop.
-  Resource: getName() y getId()
-  Troop: jobId()
+- Se necesitan un método extra en Resource, getName().
 - Los arrays se podrían cambiar a maps.
 */
 export class Building {

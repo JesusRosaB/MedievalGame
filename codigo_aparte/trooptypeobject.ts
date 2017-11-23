@@ -63,7 +63,7 @@ export class Troop {
     getJobId(): number {
         return this.job.getId();
     }
-    getjobName(): string {
+    getJobName(): string {
         return this.job.getJobName();
     }
 
