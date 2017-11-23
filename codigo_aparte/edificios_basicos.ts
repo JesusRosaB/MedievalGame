@@ -149,26 +149,18 @@ export class TownHall extends Building {
 }
 
 export class Armory extends Building {
-    private unitUpgradeCost: number[];
-    private costGrowth: number[];
     private mod: number[];
 
-    constructor(level: number, upgradeCost: number[], unitUpgradeCost: number[], costGrowth: number[]) {
+    constructor(level: number, upgradeCost: number[]) {
       super(level, upgradeCost, "armory");
-      this.costGrowth = costGrowth;
       for (let i of this.mod){
         i = 1;
       }
     }
 
-    getUpgradeCost(unit: Troop): number {
-        return this.unitUpgradeCost[unit.jobId()] + this.costGrowth[unit.jobId()] * unit.getLevel();
-    }
-    /*
     getUpgradeCost(job: Job): number {
-        return job.upgradeCost() * this.mod[job.id()];
+        return job.upgradeCost() * this.mod[job.getId()];
     }
-    */
 
 }
 

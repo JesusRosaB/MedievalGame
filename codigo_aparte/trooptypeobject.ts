@@ -1,37 +1,38 @@
 ﻿export class Job {
+    private id: number;
     private jobName: string;
-    private basePower: number;
     private level: number;
-    private goldCost: number;
-    private meatCost: number;
-    private upgradeCost: number;
 
-    private powerGrowth: number;
-    private goldGrowth: number;
-    private meatGrowth: number;
-    private upgradeGrowth: number;
+    private power: number[];
+    private goldCost: number[];
+    private meatCost: number[];
+    private upgradeCost: number[];
 
+    getId(): number {
+        return this.id;
+    }
     getJobName(): string {
         return this.jobName;
     }
-    getPower(): number {
-        return this.basePower + (this.powerGrowth * this.level);
-    }
 
     getLevel(): number {
-        return this.level;
+      return this.level;
+    }
+
+    getPower(): number {
+        return this.power[this.level];
     }
 
     getGoldCost(): number {
-        return this.goldCost + (this.goldGrowth * this.level);
+      return this.goldCost[this.level];
     }
 
     getMeatCost(): number {
-        return this.meatCost + (this.meatGrowth * this.level);
+        return this.meatCost[this.level];
     }
 
     getUpgradeGost(): number {
-        return this.upgradeCost + (this.upgradeGrowth * this.level);
+        return this.upgradeCost[this.level];
     }
 
     newTroop(): Troop
@@ -39,28 +40,29 @@
         return new Troop(this);
     }
 
-    constructor(name: string, power: number, level: number, gc: number, mc: number, uc: number, pg: number,
-      gg: number, mg: number, ug: number) {
+    constructor(name: string, level: number, power: number[], gc: number[], mc: number[], uc: number[]) {
         this.jobName = name;
-        this.basePower = power;
+        this.power = power;
         this.level = level;
         this.goldCost = gc;
         this.meatCost = mc;
         this.upgradeCost = uc;
-        this.powerGrowth = pg;
-        this.goldGrowth = gg;
-        this.meatGrowth = mg;
-        this.upgradeGrowth = ug;
     }
 }
 
 export class Troop {
+    private id: number;
     private job: Job;
 
     constructor(job: Job) {
         this.job = job;
     }
-
+    getId(): number {
+        return this.id;
+    }
+    getJobId(): number {
+        return this.job.getId();
+    }
     getjobName(): string {
         return this.job.getJobName();
     }
