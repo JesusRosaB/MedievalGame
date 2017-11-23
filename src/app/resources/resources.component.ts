@@ -10,18 +10,17 @@ import {resources} from './resources';
 
 
 export class ResourcesComponent implements OnInit {
-	
-	recursos: resources[] = [
-	    {name: 'Carne', quantity: 500},
-	    {name: 'Madera', quantity: 500},
-	    {name: 'Oro', quantity: 500}
-  	];
-  
-  constructor() { 
+  recursos: resources[] = [
+    {name: 'Carne', quantity: 500},
+    {name: 'Madera', quantity: 500},
+    {name: 'Oro', quantity: 500}
+  ];
+  constructor() {
 
   }
 
   ngOnInit() {
+
   }
 
 }

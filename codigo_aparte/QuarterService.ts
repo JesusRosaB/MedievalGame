@@ -7,16 +7,18 @@ import {iterator} from 'rxjs/symbol/iterator';
 export class ArmyClass extends Army {
   private TotalArmy: Array<Army> = [];
   getPower(): number {
+    let totalPower = 0;
     for (let iter of this.TotalArmy) {
-      let totalPower = 0;
       totalPower += iter.getPower();
-      return totalPower;
     }
+    return totalPower;
   }
   Add(troop: Army) {
     this.TotalArmy.push(troop);
   }
   Remove(troop: Army) {
-    this.TotalArmy.;
+    if (this.TotalArmy.indexOf(troop) !== -1) {
+      this.TotalArmy.splice(this.TotalArmy.indexOf(troop), 1);
+    }
   }
 }
