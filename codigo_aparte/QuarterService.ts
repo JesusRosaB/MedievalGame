@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Army} from './Army';
-import {forEach} from '@angular/router/src/utils/collection';
-import {iterator} from 'rxjs/symbol/iterator';
 
 @Injectable()
 export class ArmyClass extends Army {
@@ -13,9 +11,11 @@ export class ArmyClass extends Army {
     }
     return totalPower;
   }
+
   Add(troop: Army) {
     this.TotalArmy.push(troop);
   }
+
   Remove(troop: Army) {
     if (this.TotalArmy.indexOf(troop) !== -1) {
       this.TotalArmy.splice(this.TotalArmy.indexOf(troop), 1);

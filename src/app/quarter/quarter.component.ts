@@ -10,6 +10,7 @@ export class QuarterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

@@ -6,19 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { QuarterComponent } from './quarter/quarter.component';
+import { ResourcesService } from './resources/resources.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResourcesComponent,
-    QuarterComponent 
+    QuarterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ResourcesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
