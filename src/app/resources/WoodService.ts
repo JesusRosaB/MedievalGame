@@ -1,5 +1,3 @@
-
-
 import {Injectable, OnInit} from '@angular/core';
 import {ResourcesManage} from './resources';
 

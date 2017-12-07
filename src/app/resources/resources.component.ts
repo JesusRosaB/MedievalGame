@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 
 import {Resources} from './resources';
+import {WoodService} from "./WoodService";
+import {ResourcesService} from './resources.service';
 
 @Component({
   selector: 'app-resources',
@@ -9,22 +11,12 @@ import {Resources} from './resources';
 })
 
 
-export class ResourcesComponent implements OnInit {
-  recursos: Resources[] = [
-    {id: 0, name: 'Carne', quantity: 500},
-    {id: 1, name: 'Madera', quantity: 500},
-    {id: 2, name: 'Oro', quantity: 500}
-  ];
-  
-  
-  constructor() {
+export class ResourcesComponent implements OnInit{
 
-  }
+  constructor(private Service:ResourcesService) {}
 
   ngOnInit() {
-    /*this.recursos[0] = new Resources(0, 'Carne', 500);
-    this.recursos[1] = new Resources(1, 'Madera', 500);
-    this.recursos[2] = new Resources(2, 'Oro', 500);*/
+
   }
 
 }

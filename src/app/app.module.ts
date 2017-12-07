@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { QuarterComponent } from './quarter/quarter.component';
-import { ResourcesService } from './resources/resources.service';
+import {WoodService} from "./resources/WoodService";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ResourcesService } from './resources/resources.service';
     FormsModule,
     HttpModule
   ],
-  providers: [ResourcesService],
+  providers: [WoodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

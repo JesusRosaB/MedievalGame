@@ -22,9 +22,3 @@ export class Resources {
   }
 
 }
-
-export interface ResourcesManage{
-  currentQuantity();
-  increase(quantity: number);
-  spend(quantity: number);
-}
