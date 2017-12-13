@@ -1,19 +1,19 @@
 import {Injectable, OnInit} from '@angular/core';
-import {ResourcesManage} from './resources';
+import {Resources} from './resources';
 
 @Injectable()
-export class WoodService implements ResourcesManage, OnInit {
-  Wood: number;
-  currentQuantity() {
-    return this.Wood;
+export class WoodService implements OnInit {
+  Wood:Resources;
+  currentQuantity(){
+    return this.Wood.quantity;
   }
   increase(quantity) {
-    this.Wood += quantity;
+    this.Wood.quantity += quantity;
   }
   spend(quantity) {
-    this.Wood -= quantity;
+    this.Wood.quantity -= quantity;
   }
   ngOnInit() {
-    this.Wood = 500;
+    this.Wood=new Resources(1,'Madera',500);
   }
 }

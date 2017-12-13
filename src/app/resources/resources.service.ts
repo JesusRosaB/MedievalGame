@@ -3,25 +3,26 @@
  */
 
 import {Injectable} from "@angular/core";
+import {Resources} from "./resources";
 
 @Injectable()
 export class ResourcesService {
-  private Resources:Map<string,number>=new Map([['Madera', 500], ['Carne', 500], ['Oro', 500]]);
+  private Resources:Map<number,Resources>=new Map([[1,new Resources(1,'Madera',500)], [2,new Resources(2,'Carne',500)], [3,new Resources(3,'Oro',500)]]);
 
   getMadera(){
-    return this.Resources.get('Madera');
+    return this.Resources.get(1);
   }
 
   getCarne(){
-    return this.Resources.get('Carne');
+    return this.Resources.get(2);
   }
 
   getOro(){
-    return this.Resources.get('Oro');
+    return this.Resources.get(3);
   }
 
   addMadera(cantidad:number){
-    this.Resources.set('Madera', this.Resources.get('Madera')+cantidad);
+    this.Resources.set(1, (this.Resources.get(1)).quantity+cantidad);
   }
 
   addCarne(cantidad:number){

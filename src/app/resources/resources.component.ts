@@ -12,11 +12,12 @@ import {ResourcesService} from './resources.service';
 
 
 export class ResourcesComponent implements OnInit{
-
+  Madera:Resource;
   constructor(private Service:ResourcesService) {}
-
   ngOnInit() {
-
+    this.Madera=this.Service.getMadera();
+    Carne=this.Service.getCarne();
+    Oro=this.Service.getOro();
   }
 
 }
