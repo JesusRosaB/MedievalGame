@@ -1,8 +1,9 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 
 import {Resources} from './resources';
-import {WoodService} from "./WoodService";
-import {ResourcesService} from './resources.service';
+import {WoodService} from './WoodService';
+import {MeatService} from './MeatService';
+import {GoldService} from './GoldService';
 
 @Component({
   selector: 'app-resources',
@@ -11,13 +12,18 @@ import {ResourcesService} from './resources.service';
 })
 
 
-export class ResourcesComponent implements OnInit{
-  Madera:Resource;
-  constructor(private Service:ResourcesService) {}
+export class ResourcesComponent implements OnInit {
+  recursos: number[];
+  constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService) {}
   ngOnInit() {
-    this.Madera=this.Service.getMadera();
-    Carne=this.Service.getCarne();
-    Oro=this.Service.getOro();
+    this.recursos[0] = this.Wood.currentQuantity();
+    this.recursos[1] = this.Meat.currentQuantity();
+    this.recursos[2] = this.Gold.currentQuantity();
   }
 
+  Actualizar() {
+    this.recursos[0] = this.Wood.currentQuantity();
+    this.recursos[1] = this.Meat.currentQuantity();
+    this.recursos[2] = this.Gold.currentQuantity();
+  }
 }

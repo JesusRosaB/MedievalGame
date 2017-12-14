@@ -6,8 +6,8 @@ import {Resources} from './resources';
 
 @Injectable()
 export class MeatService implements OnInit {
-  Meat:Resources;
-  currentQuantity(){
+  Meat: Resources;
+  currentQuantity() {
     return this.Meat.quantity;
   }
   increase(quantity) {
@@ -17,6 +17,6 @@ export class MeatService implements OnInit {
     this.Meat.quantity -= quantity;
   }
   ngOnInit() {
-    this.Meat=new Resources(1,'Madera',500);
+    this.Meat = new Resources(2, 'Carne', 500);
   }
 }
