@@ -5,8 +5,8 @@ import {Injectable, OnInit} from '@angular/core';
 import {Resources} from './resources';
 
 @Injectable()
-export class GoldService implements OnInit {
-  Gold: Resources;
+export class GoldService {
+  Gold: Resources = new Resources(3, 'Oro', 500);
   currentQuantity() {
     return this.Gold.quantity;
   }
@@ -15,8 +15,5 @@ export class GoldService implements OnInit {
   }
   spend(quantity) {
     this.Gold.quantity -= quantity;
-  }
-  ngOnInit() {
-    this.Gold = new Resources(3, 'Oro', 500);
   }
 }

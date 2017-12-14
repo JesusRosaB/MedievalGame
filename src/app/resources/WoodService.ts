@@ -1,8 +1,9 @@
 import {Injectable, OnChanges, OnInit, Output} from '@angular/core';
 import {Resources} from './resources';
+import {Observable} from "rxjs/Observable";
 @Injectable()
-export class WoodService implements OnInit, OnChanges {
-  Wood: Resources;
+export class WoodService {
+  Wood: Resources = new Resources(1, 'Madera', 500);
   currentQuantity() {
     return this.Wood.quantity;
   }
@@ -12,11 +13,8 @@ export class WoodService implements OnInit, OnChanges {
   spend(quantity) {
     this.Wood.quantity -= quantity;
   }
-  ngOnInit() {
-    this.Wood = new Resources(1, 'Madera', 500);
-  }
-  ngOnChanges() {
-    Rx.Observable.next(this.Wood);
 
-  }
+  woodObserver=Observable.create((observer)=>{
+    observer.ngOnChanges(this.Wood);
+  })
 }
