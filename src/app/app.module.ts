@@ -34,7 +34,11 @@ import { TownhallComponent } from './townhall/townhall.component';
     ReactiveFormsModule,
     APP_ROUTING
   ],
-  providers: [WoodService, MeatService, GoldService],
+  providers: [
+    WoodService,
+    MeatService,
+    GoldService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,18 @@
 <h1>
   {{title}}
-    Angular Router
+    <br>Angular Router<br>
 	<div class="routing">
-		<a routerLink="cuartel" routerLinkActive="active">Cuartel</a>
-		<a routerLink="recursos" routerLinkActive="active">Recursos</a>
-		<a routerLink="mercado" routerLinkActive="active">Mercado</a>
-		<a routerLink="ejercito" routerLinkActive="active">Ejercito</a>
-		<a routerLink="armeria" routerLinkActive="active">Armeria</a>
-		<a routerLink="ayuntamiento" routerLinkActive="active">Ayuntamiento</a>
+		<a id="cuartel" routerLink="cuartel" routerLinkActive="active"><img src='../cuartel.jpg' alt="Cuartel"></a>
+		<a id="recursos" routerLink="recursos" routerLinkActive="active"><img src='../recursos.png' alt="Recursos"></a>
+		<a id="mercado" routerLink="mercado" routerLinkActive="active"><img src='../mercado.png' alt="Mercado"></a>
+		<a id="ejercito" routerLink="ejercito" routerLinkActive="active"><img src='../ejercito.png' alt="Ejercito"></a>
+		<a id="armeria" routerLink="armeria" routerLinkActive="active" ><img src='../armeria.png' alt="Armeria"></a>
+		<a id="ayuntamiento" routerLink="ayuntamiento" routerLinkActive="active"><img src='../ayuntamiento.jpg' alt="Ayuntamiento"></a>
 	</div>
-
+	
+	<!--<app-resources></app-resources>-->
+	
 	<div class="container-fluid">
 	    <router-outlet></router-outlet>
 	</div>
-  <!--<app-resources></app-resources>
-  <app-quarter></app-quarter>-->
 </h1>
