@@ -1,6 +1,5 @@
 import {Injectable, OnChanges, OnInit, Output} from '@angular/core';
 import {Resources} from './resources';
-import {EventEmitter} from 'events';
 
 @Injectable()
 export class WoodService implements OnInit {
