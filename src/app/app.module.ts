@@ -31,13 +31,14 @@ import { TownhallComponent } from './townhall/townhall.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    WoodService,
-    MeatService,
-    GoldService,
     ReactiveFormsModule,
     APP_ROUTING
   ],
-  providers: [WoodService],
+  providers: [
+    MeatService,
+    GoldService,
+    WoodService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
