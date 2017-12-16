@@ -3,7 +3,7 @@
  */
 import {Injectable, OnInit} from '@angular/core';
 import {Resources} from './resources';
-
+import {Observable} from "rxjs/Observable";
 @Injectable()
 export class MeatService {
   Meat: Resources = new Resources(2, 'Carne', 500);
@@ -12,8 +12,16 @@ export class MeatService {
   }
   increase(quantity) {
     this.Meat.quantity += quantity;
+    this.meatObserver.change();
   }
   spend(quantity) {
     this.Meat.quantity -= quantity;
+    this.meatObserver.change();
   }
+
+  meatObserver= Observable.create((observer)=>{
+    function change() {
+      observer.next(this.currentQuantity());
+    }
+  });
 }

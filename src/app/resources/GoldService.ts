@@ -3,6 +3,7 @@
  */
 import {Injectable, OnInit} from '@angular/core';
 import {Resources} from './resources';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class GoldService {
@@ -12,8 +13,16 @@ export class GoldService {
   }
   increase(quantity) {
     this.Gold.quantity += quantity;
+    this.goldObserver.change();
   }
   spend(quantity) {
     this.Gold.quantity -= quantity;
+    this.goldObserver.change();
   }
+
+  goldObserver= Observable.create((observer)=>{
+    function change() {
+      observer.next(this.currentQuantity());
+    }
+  });
 }
