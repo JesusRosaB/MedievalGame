@@ -1,5 +1,5 @@
-import { Building } from './building';
-import { Resources } from './resources/resources';
+import { Building } from '../building';
+import { Resources } from '../resources/resources';
 
 export class Collector extends Building {
 
@@ -14,7 +14,7 @@ export class Collector extends Building {
         this.levelGrowth = levelGrowth;
         this.mod = 1;
     }
-    
+
     yieldValue(): number{
         return this.baseYield * this.level * this.mod;
     }
