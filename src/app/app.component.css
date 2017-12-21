@@ -1,27 +1,67 @@
 .routing {
-	background-color: white;
+	background-image: url("../cesped.jpg");
+	width: 1400px; height: 630px;
+}
+
+div.fixed {
+	position: fixed;
+	top: 110px;
+    right: 100px;
 }
 
 #ayuntamiento {
-
+	position: absolute;
+  	top: 340px; 
+  	left: 650px;
 }
 
 #cuartel {
-
+	position: absolute;
+  	top: 300px; 
+  	left: 235px;
 }
 
 #recursos {
-
+	position: absolute;
+  	top: 500px; 
+  	left: 350px;
 }
 
 #mercado {
-
+	position: absolute;
+  	top: 550px; 
+  	left: 900px;
 }
 
 #ejercito {
-
+	position: absolute;
+  	top: 400px; 
+  	left: 1050px;
 }
 
 #armeria {
-	
+	position: absolute;
+  	top: 250px; 
+  	left: 1200px;
+}
+
+img.muy-pequeña {
+	width: 40px; height: 40px;
+}
+img.pequeña{
+  	width: 100px; height: 100px;
+}
+img.mediana{
+  	width: 150px; height: 150px;
+}
+img.pequeña:hover{
+	width: 200px; height: 200px;
+	transition: width 2s, height 2s;
+}
+img.mediana:hover{
+	width: 200px; height: 200px;
+	transition: width 2s, height 2s;
+}
+img.pequeña:active{
+	width: 0px; height: 0px;
 }
