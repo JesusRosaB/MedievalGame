@@ -16,8 +16,9 @@ import { MarketComponent } from './market/market.component';
 import { ArmyComponent } from './army/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
-//import { WoodCutterHouse } from "./collectors/woodcutterhouse.component";
-import {WoodCutterService} from "./collectors/woodcutterService";
+import { WoodcutterhouseComponent } from './collectors/woodcutterhouse.component';
+import { WoodCutterService } from './collectors/woodcutterService';
+import { timerService } from './Timer/timer.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {WoodCutterService} from "./collectors/woodcutterService";
     ArmyComponent,
     ArmoryComponent,
     TownhallComponent,
-    //WoodCutterHouse
+    WoodcutterhouseComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import {WoodCutterService} from "./collectors/woodcutterService";
     WoodService,
     MeatService,
     GoldService,
-    WoodCutterService
+    WoodCutterService,
+    timerService
   ],
   bootstrap: [AppComponent]
 })

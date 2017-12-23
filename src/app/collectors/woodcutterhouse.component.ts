@@ -1,16 +1,19 @@
 /**
  * Created by jose on 16/12/17.
  */
-/*import {Component} from "@angular/core";
-import {WoodService} from "../resources/WoodService";
-import {timerService} from "../timer.service";
+import {Component} from '@angular/core';
+import {CarouselModule} from 'primeng/primeng';
+import {WoodService} from '../resources/WoodService';
+import {timerService} from '../Timer/timer.service';
 
 @Component({
-  selector: 'woodcutterhouse-component',
-  templateUrl: './collectors/woodcutterhouse.component.html',
-  styleUrls: ['./collectors/woodcutterhouse.component.css']
+  selector: 'app-woodcutterhouse-component',
+  templateUrl: 'woodcutterhouse.component.html',
+  styleUrls: ['woodcutterhouse.component.css']
 })
 
-export class WoodCutterHouse{
-
-}*/
+export class WoodcutterhouseComponent {
+  constructor() {
+    
+  }
+}

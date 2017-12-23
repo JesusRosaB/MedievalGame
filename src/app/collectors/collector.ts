@@ -9,7 +9,7 @@ export class Collector extends Building {
     private mod: number;
 
     constructor(level: number, upgradeCost: number[], resource: Resources, baseYield: number, levelGrowth: number) {
-        super(level, upgradeCost, "collector of "+resource.getName());
+        super(level, upgradeCost, 'collector of ' + resource.getName());
         this.baseYield = baseYield;
         this.levelGrowth = levelGrowth;
         this.mod = 1;

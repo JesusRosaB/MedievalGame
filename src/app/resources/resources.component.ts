@@ -9,12 +9,15 @@ import {GoldService} from './GoldService';
   styleUrls: ['./resources.component.css']
 })
 
-export class ResourcesComponent {
-  recursos: number[]=[];
+export class ResourcesComponent implements OnInit {
+  recursos: number[]= [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService) {
+    Wood.woodObserver.subscribe(x => this.recursos[0] = x);
+    Meat.meatObserver.subscribe(x => this.recursos[1] = x);
+    Gold.goldObserver.subscribe(x => this.recursos[2] = x);
+  }
+  ngOnInit() {
+    console.log('Llego componente recursos');
     this.recursos.push(this.Wood.currentQuantity(), this.Meat.currentQuantity(), this.Gold.currentQuantity());
-    this.Wood.woodObserver.subscribe((x)=>this.recursos[0]=x);
-    this.Meat.meatObserver.subscribe((x)=>this.recursos[1]=x);
-    this.Gold.goldObserver.subscribe((x)=>this.recursos[2]=x);
   }
 }
