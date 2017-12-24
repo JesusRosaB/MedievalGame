@@ -1,13 +1,12 @@
 import { Building } from './building';
 
 export class Townhall extends Building {
-
-	private baseResourceLimit: number;
+    private baseResourceLimit: number;
     private baseUnitLimit: number;
     private levelResGrowth: number;
     private levelUnitGrowth: number;
 
-    constructor(level: number, upgradeCost: number[], name: string, baseResourceLimit: number, baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
+    constructor(level: number, upgradeCost: number/*[]*/, name: string, baseResourceLimit: number, baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
         super(level, upgradeCost, name);
         this.baseResourceLimit = baseResourceLimit;
         this.baseUnitLimit = baseUnitLimit;

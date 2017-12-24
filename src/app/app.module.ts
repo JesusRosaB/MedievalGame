@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -16,9 +16,9 @@ import { MarketComponent } from './market/market.component';
 import { ArmyComponent } from './army/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
-import { WoodcutterhouseComponent } from './collectors/woodcutterhouse.component';
-import { WoodCutterService } from './collectors/woodcutterService';
-import { timerService } from './Timer/timer.service';
+import { CollectorsComponent } from './collectors/collector.component';
+import { CollectorsService } from './collectors/collectorsService';
+import { TimerService } from './Timer/timer.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { timerService } from './Timer/timer.service';
     ArmyComponent,
     ArmoryComponent,
     TownhallComponent,
-    WoodcutterhouseComponent
+    CollectorsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +42,10 @@ import { timerService } from './Timer/timer.service';
     WoodService,
     MeatService,
     GoldService,
-    WoodCutterService,
-    timerService
+    CollectorsService,
+    TimerService
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

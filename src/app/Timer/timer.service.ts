@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 import {TimerObservable} from 'rxjs/observable/TimerObservable';
 
 @Injectable()
-export class timerService{
+export class TimerService {
   /*resourcesTimer = Observable.create((observer) => {
       setInterval(() => {
         console.log('Llego, timer');
