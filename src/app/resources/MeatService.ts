@@ -1,26 +1,22 @@
 /**
  * Created by jose on 13/12/17.
  */
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Resources} from './resources';
-import {Observable} from 'rxjs/Observable';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class MeatService {
   Meat: Resources = new Resources(2, 'Carne', 500);
-  meatObserver= Observable.create((observer) => {
-    function change() {
-      observer.next(this.currentQuantity());
-    }
-  });
+  meatObserver= BehaviorSubject.create(this.Meat.quantity);
   currentQuantity() {
     return this.Meat.quantity;
   }
   increase(quantity) {
     this.Meat.quantity += quantity;
-    this.meatObserver.change();
+    this.meatObserver.next(this.currentQuantity());
   }
   spend(quantity) {
     this.Meat.quantity -= quantity;
-    this.meatObserver.change();
+    this.meatObserver.next(this.currentQuantity());
   }
 }
