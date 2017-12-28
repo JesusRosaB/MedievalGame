@@ -17,7 +17,6 @@ export class ResourcesComponent implements OnInit {
     Gold.goldObserver.subscribe(x => this.recursos[2] = x);
   }
   ngOnInit() {
-    console.log('Llego componente recursos');
     this.recursos.push(this.Wood.currentQuantity(), this.Meat.currentQuantity(), this.Gold.currentQuantity());
   }
 }

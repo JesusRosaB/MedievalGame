@@ -9,9 +9,9 @@ export class Market extends Building{
     private purchaseMod: number[];
     private saleMod: number[];
 
-    constructor(level: number, upgradeCost: number[], basePurchasePrices: number[],
+    constructor(level: number, upgradeCost: number/*[]*/, basePurchasePrices: number[],
       baseSalePrices: number[], levelGrowth: number) {
-        super(level, upgradeCost, "market");
+        super(level, upgradeCost, 'market');
         this.basePurchasePrices = basePurchasePrices;
         this.baseSalePrices = baseSalePrices;
         this.levelGrowth = levelGrowth;
@@ -26,11 +26,11 @@ export class Market extends Building{
     purchaseValue(amount: number, res: Resources): number {
         return this.getPurchasePrices()[res.getId()] * amount;
     }
-    
+
     saleValue(amount: number, res: Resources): number {
         return this.getSalePrices()[res.getId()] * amount;
     }
-    
+
     getPurchasePrices(): number[] {
         let truePrices: number[] = this.basePurchasePrices;
         for (let i: number = 0; i < truePrices.length; i++){
@@ -38,7 +38,7 @@ export class Market extends Building{
         }
         return truePrices;
     }
-    
+
     getSalePrices(): number[] {
         let truePrices = this.baseSalePrices;
         for (let i: number = 0; i < truePrices.length; i++) {
@@ -46,7 +46,7 @@ export class Market extends Building{
         }
         return truePrices;
     }
-    
+
     applyPurchaseMod(mods: number[], time: number) {
         for (let i: number = 0; i < mods.length; i++) {
             this.purchaseMod[i] *= mods[i];
