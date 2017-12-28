@@ -9,27 +9,20 @@ import {GoldService} from '../resources/GoldService';
  */
 
 @Injectable()
-export class CollectorsService implements OnInit{
-  woodPerSecond;
-  meatPerSecond;
-  goldPerSecond;
+export class CollectorsService implements OnInit {
   private collectors: Collector[] = [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService, private timer: TimerService) {
-    this.woodPerSecond = 1;
-    this.meatPerSecond = 1;
-    this.goldPerSecond = 1;
-    this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.woodPerSecond));
-    this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.meatPerSecond));
-    this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.goldPerSecond));
-  }
-  getCollectors() {
-    return this.collectors;
-  }
-  ngOnInit() {
     this.collectors.push(
       new Collector(1, 1, 'woodCutterHouse', 1, 1),
       new Collector(1, 1, 'butcherHouse', 1, 1),
       new Collector(1, 1, 'goldMine', 1, 1)
     );
+    this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.collectors[0].yieldValue()));
+    this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.collectors[1].yieldValue()));
+    this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.collectors[2].yieldValue()));
   }
+  getCollectors() {
+    return this.collectors;
+  }
+  ngOnInit() {}
 }
