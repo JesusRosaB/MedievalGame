@@ -19,6 +19,7 @@ import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './Timer/timer.service';
+import {TroopTypeComponent} from './quarter/troopType.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TimerService } from './Timer/timer.service';
     ArmyComponent,
     ArmoryComponent,
     TownhallComponent,
-    CollectorsComponent
+    CollectorsComponent,
+    TroopTypeComponent
   ],
   imports: [
     BrowserModule,
