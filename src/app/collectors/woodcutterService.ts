@@ -6,10 +6,13 @@ import {timerService} from '../Timer/timer.service';
  */
 
 @Injectable()
-export class WoodCutterService{
+export class WoodCutterService implements OnInit {
   woodPerSecond;
   constructor(private Wood: WoodService, private timer: timerService) {
     this.woodPerSecond = 1;
     this.timer.resourcesTimer.subscribe((x) => this.Wood.increase(this.woodPerSecond));
+  }
+  ngOnInit() {
+
   }
 }
