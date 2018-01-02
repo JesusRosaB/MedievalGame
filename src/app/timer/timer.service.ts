@@ -1,7 +1,6 @@
 /**
  * Created by jose on 15/12/17.
  */
-
 import {Injectable} from '@angular/core';
 import {TimerObservable} from 'rxjs/observable/TimerObservable';
 

@@ -18,8 +18,9 @@ import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
-import { TimerService } from './Timer/timer.service';
+import { TimerService } from './timer/timer.service';
 import {TroopTypeComponent} from './quarter/troopType.component';
+import {EventsService} from './events/events.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {TroopTypeComponent} from './quarter/troopType.component';
     MeatService,
     GoldService,
     CollectorsService,
-    TimerService
+    TimerService,
+    EventsService
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

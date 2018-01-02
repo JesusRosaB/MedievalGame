@@ -23,5 +23,4 @@ export class Collector extends Building {
         // Tiempo
         this.mod /= newMod;
     }
-
 }

@@ -4,7 +4,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CarouselModule} from 'primeng/primeng';
 import {WoodService} from '../resources/WoodService';
-import {TimerService} from '../Timer/timer.service';
+import {TimerService} from '../timer/timer.service';
 import {Collector} from './Collector';
 import {CollectorsService} from './collectorsService';
 

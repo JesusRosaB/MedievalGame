@@ -1,6 +1,6 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {WoodService} from '../resources/WoodService';
-import {TimerService} from '../Timer/timer.service';
+import {TimerService} from '../timer/timer.service';
 import {Collector} from './Collector';
 import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
@@ -9,7 +9,7 @@ import {GoldService} from '../resources/GoldService';
  */
 
 @Injectable()
-export class CollectorsService implements OnInit {
+export class CollectorsService {
   private collectors: Collector[] = [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService, private timer: TimerService) {
     this.collectors.push(
@@ -24,5 +24,4 @@ export class CollectorsService implements OnInit {
   getCollectors() {
     return this.collectors;
   }
-  ngOnInit() {}
 }
