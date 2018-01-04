@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {TimerService} from '../timer/timer.service';
+import {Evento} from './Evento';
 
 @Injectable()
 export class EventsService {
+
   constructor(private timer: TimerService) {
     this.timer.eventsTimer.subscribe(() => this.lanzarEvento());
   }
@@ -11,7 +13,6 @@ export class EventsService {
     if (resultado % 10 < 3) {
 
     }
-
     else if (resultado % 10 < 7) {
 
     }

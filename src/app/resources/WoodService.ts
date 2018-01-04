@@ -17,4 +17,7 @@ export class WoodService {
     this.Wood.quantity -= quantity;
     this.woodObserver.next(this.currentQuantity());
   }
+  onNext = function(quantity) {
+    this.increase(quantity);
+  }
 }
