@@ -1,7 +1,7 @@
 export class Building {
-    protected level: number;
+    public level: number;
     protected upgradeCost: number/*[]*/;
-    protected name: string;
+    public name: string;
 
     constructor(level: number, upgradeCost: number/*[]*/, name: string) {
         this.level = level;

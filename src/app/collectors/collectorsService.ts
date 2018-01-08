@@ -17,6 +17,7 @@ export class CollectorsService {
       new Collector(1, 1, 'butcherHouse', 1, 1),
       new Collector(1, 1, 'goldMine', 1, 1)
     );
+    console.log('Llego servicio recolectores');
     this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.collectors[0].yieldValue()));
     this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.collectors[1].yieldValue()));
     this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.collectors[2].yieldValue()));

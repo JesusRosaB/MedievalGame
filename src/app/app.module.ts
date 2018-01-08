@@ -21,6 +21,10 @@ import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './timer/timer.service';
 import {TroopTypeComponent} from './quarter/troopType.component';
 import {EventsService} from './events/events.service';
+import {MessageService} from 'primeng/components/common/messageservice';
+import {CarouselModule, MessageModule, MessagesModule} from 'primeng/primeng';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {EventsComponent} from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +36,19 @@ import {EventsService} from './events/events.service';
     ArmoryComponent,
     TownhallComponent,
     CollectorsComponent,
-    TroopTypeComponent
+    TroopTypeComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    CarouselModule,
+    BrowserAnimationsModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [
     WoodService,
@@ -47,7 +56,8 @@ import {EventsService} from './events/events.service';
     GoldService,
     CollectorsService,
     TimerService,
-    EventsService
+    EventsService,
+    MessageService
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

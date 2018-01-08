@@ -12,12 +12,19 @@ export class WoodService {
   increase(quantity) {
     this.Wood.quantity += quantity;
     this.woodObserver.next(this.currentQuantity());
+    console.log(this.currentQuantity());
   }
   spend(quantity) {
     this.Wood.quantity -= quantity;
     this.woodObserver.next(this.currentQuantity());
+    console.log(this.currentQuantity());
   }
-  onNext = function(quantity) {
-    this.increase(quantity);
+  loose(quantity) {
+    if (this.currentQuantity() < quantity){
+      this.Wood.quantity = 0;
+    }
+    else {
+      this.Wood.quantity -= quantity;
+    }
   }
 }

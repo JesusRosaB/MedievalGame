@@ -13,7 +13,7 @@ export class TimerService {
       },1000)
   });*/
   resourcesTimer = TimerObservable.create(1000, 1000);
-  eventsTimer = TimerObservable.create(1000, 1000);
+  eventsTimer = TimerObservable.create(1000, 2000000);
 
   /*eventsTimer = Observable.create((observer) => {
       setInterval(() => {
