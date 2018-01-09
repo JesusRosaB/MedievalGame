@@ -7430,7 +7430,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-enemyGroup: ArmyComponent",
+											"text": "-enemyGroup: ArmyElement",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -7688,7 +7688,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+takeQuest(squad: ArmyComponent): void",
+											"text": "+takeQuest(squad: ArmyElement): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -16612,7 +16612,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "ArmyComponent",
+											"text": "ArmyElement",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -17078,7 +17078,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-members: ArmyComponent[0..*]",
+											"text": "-members: ArmyElement[0..*]",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -17162,7 +17162,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+addComponent(component: ArmyComponent): void",
+											"text": "+addComponent(component: ArmyElement): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -17191,7 +17191,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+removeComponent(component: ArmyComponent): void",
+											"text": "+removeComponent(component: ArmyElement): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -17220,7 +17220,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getComponent(): ArmyComponent",
+											"text": "+getComponent(): ArmyElement",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -23666,7 +23666,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "ArmyComponent",
+					"name": "ArmyElement",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
