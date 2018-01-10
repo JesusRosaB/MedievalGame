@@ -5,7 +5,7 @@ import { MarketComponent } from './market/market.component';
 import { ArmyComponent } from './army/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
-import {CollectorsComponent} from './collectors/collector.component';
+import { CollectorsComponent } from './collectors/collector.component';
 
 const APP_ROUTES: Routes = [
   { path: 'cuartel', component: QuarterComponent },
