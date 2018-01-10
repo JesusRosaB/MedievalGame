@@ -14,10 +14,11 @@ import {CollectorsService} from './collectorsService';
 
 export class CollectorsComponent implements OnInit {
   collectors: Collector[];
-  constructor(private collectorsService: CollectorsService, private Wood: WoodService) {}
+  constructor(private collectorsService: CollectorsService, private Wood: WoodService) {
+    console.log('Llego componentes recolectores');
+  }
   ngOnInit() {
     this.collectors = this.collectorsService.getCollectors();
-    console.log('Llego componentes recolectores');
   }
   levelUp(collector) {
     if (collector.levelCost() <= this.Wood.currentQuantity()) {
