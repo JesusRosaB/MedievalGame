@@ -20,7 +20,7 @@ export class WoodService {
     console.log(this.currentQuantity());
   }
   loose(quantity) {
-    if (this.currentQuantity() < quantity){
+    if (this.currentQuantity() < quantity) {
       this.Wood.quantity = 0;
     }
     else {
