@@ -1,12 +1,15 @@
+import {ArmyElement} from './ArmyElement';
+import {Injectable} from '@angular/core';
 
-export class ArmyComposite implements ArmyElement {
+@Injectable()
+export class ArmyService {
 
   private members: ArmyElement[];
 
-  constructor() { };
+  constructor() {}
 
-  public getPower() :number {
-    let power: number = 0;
+  public getPower(): number {
+    let power = 0;
     for (let m of this.members) {
       power += m.getPower();
     }
@@ -24,11 +27,11 @@ export class ArmyComposite implements ArmyElement {
     }
   }
 
-  public setBusy(): void {
+  /*public setBusy(): void {
     for (let m of this.members) {
       m.setBusy();
     }
-  }
+  }*/
 
   /*public getComponent(id: number): ArmyElement {
     //Dar un identificador a Composite?

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ArmyService} from './army.service';
 
 
 @Component({
@@ -8,10 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuarterComponent implements OnInit {
 
-  constructor() {}
-
+  constructor(private army: ArmyService) {}
   ngOnInit() {
 
   }
-
 }

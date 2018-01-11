@@ -1,3 +1,5 @@
+import {ArmyElement} from './ArmyElement';
+
 export class Job {
     private id: number;
     private jobName: string;
@@ -50,12 +52,13 @@ export class Job {
     }
 }
 
-export class Troop {
+export class Troop extends ArmyElement{
     private id: number;
     private job: Job;
     private health: number;
 
     constructor(job: Job) {
+        super();
         this.job = job;
     }
     getId(): number {
@@ -74,5 +77,4 @@ export class Troop {
     getLevel(): number {
         return this.job.getLevel();
     }
-  
 }

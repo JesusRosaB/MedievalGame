@@ -13,13 +13,12 @@ import { WoodService } from './resources/WoodService';
 import { MeatService } from './resources/MeatService';
 import { GoldService } from './resources/GoldService';
 import { MarketComponent } from './market/market.component';
-import { ArmyComponent } from './army/army.component';
+import { ArmyComponent } from './quarter/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './timer/timer.service';
-import {TroopTypeComponent} from './quarter/troopType.component';
 import {EventsService} from './events/events.service';
 
 @NgModule({
@@ -31,8 +30,7 @@ import {EventsService} from './events/events.service';
     ArmyComponent,
     ArmoryComponent,
     TownhallComponent,
-    CollectorsComponent,
-    TroopTypeComponent
+    CollectorsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +47,7 @@ import {EventsService} from './events/events.service';
     TimerService,
     EventsService
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
