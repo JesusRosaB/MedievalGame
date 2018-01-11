@@ -12,4 +12,8 @@ export class ListaTrabajos {
     );
   }
 
+  getSoldado() {
+    return Job[0];
+  }
+
 }

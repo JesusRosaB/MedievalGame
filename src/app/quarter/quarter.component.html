@@ -1,1 +1,14 @@
-<app-troop-type></app-troop-type>
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-secondary" (click)="this.comprar(Soldado,1)">1</button>
+  <button type="button" class="btn btn-secondary" (click)="this.comprar(Soldado,5)">5</button>
+
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Mas cantidades
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#" (click)="this.comprar(Soldado,25)">25</a>
+      <a class="dropdown-item" href="#" (click)="this.comprar(Soldado,100)">100</a>
+    </div>
+  </div>
+</div>
