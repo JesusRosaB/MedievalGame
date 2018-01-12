@@ -1,7 +1,12 @@
 import {Injectable} from '@angular/core';
 import {TimerService} from '../timer/timer.service';
+<<<<<<< HEAD
 import {Evento, EventoAtaque, EventoRecursos} from './Evento';
 import {MessagesService} from '../messages/messages.service';
+=======
+import {EventoAtaque, EventoRecursos} from './Evento';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+>>>>>>> eventos
 
 @Injectable()
 export class EventsService {
@@ -14,7 +19,6 @@ export class EventsService {
     let resultado = Math.random() * 10;
     if (resultado <= 10) {
       if (resultado < 2) {
-        console.log('Enviando evento recursos positivo');
         this.event = new EventoRecursos('Buena obtencion de recursos', Math.random() * 900 + 100);
       }
       else {
@@ -23,6 +27,7 @@ export class EventsService {
       }
       this.messages.addMessage(this.event.getMessage());
       this.event.realizar();
+      console.log(this.event.getMessage() + ': ' + this.event.getCantidad() + '\n');
     }
     /*else if (resultado > 10) {
       this.event = new EventoAtaque('Atacaron la aldea', 1/*Aqui colocar la toma de poder de la aldea para introducir una
