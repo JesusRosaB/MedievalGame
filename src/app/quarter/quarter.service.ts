@@ -1,22 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Army} from '../army';
+import {ArmyService} from './army.service';
+import {ListaTrabajos} from './listaTrabajos';
 
 @Injectable()
-export class QuarterService extends Army {
-  private TotalArmy: Array<Army> = [];
-  getPower(): number {
-    let totalPower = 0;
-    for (let iter of this.TotalArmy) {
-      totalPower += iter.getPower();
-    }
-    return totalPower;
-  }
-  Add(troop: Army) {
-    this.TotalArmy.push(troop);
-  }
-  Remove(troop: Army) {
-    if (this.TotalArmy.indexOf(troop) !== -1) {
-      this.TotalArmy.splice(this.TotalArmy.indexOf(troop), 1);
+export class QuarterService {
+  constructor(private trooptype: ListaTrabajos, private army: ArmyService) {}
+  comprarSoldados(quantity) {
+    let cont = 0;
+    while (cont < quantity) {
+      this.army.addComponent(this.trooptype.getSoldado());
+      ++cont;
     }
   }
 }

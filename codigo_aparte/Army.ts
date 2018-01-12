@@ -3,9 +3,41 @@ import UnsupportedOperationError = error.UnsupportedOperationError;
 import {MetadataOverride} from '@angular/core/testing';
 
 export abstract class Army {
-  getPower(): number {return 0; }
-  Add(troop: Army) {}
-  Remove(troop: Army) {}
+  private members: Troop[];
+
+  getPower(): number {
+    let power: number = 0;
+    for (let i = 0; i < this.members.length; i++) {
+      power += this.members[i].getPower();
+    }
+    return power;
+  }
+
+  addTroop(troop: Troop): void {
+    this.members.push(troop);
+  }
+
+  removeTroop(troop: Troop): void {
+    let i: number = 0;
+    let found: boolean = false;
+    while (!found && i < this.members.length) {
+      if (this.members[i] == troop) {
+        found = true;
+        this.members.splice(i, 1);
+      }
+      i++;
+    }
+  }
+
+  getTroop(id: number): Troop {
+    for (let i = 0; i < this.members.length; i++) {
+      if (this.members[i].getId() == id) {
+        return this.members[i];
+      }
+    }
+    throw new Error("Troop with id " + id + " not found.")
+  }
+
 }
 
 export abstract class Troop extends Army {

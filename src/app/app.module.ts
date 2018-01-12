@@ -13,18 +13,15 @@ import { WoodService } from './resources/WoodService';
 import { MeatService } from './resources/MeatService';
 import { GoldService } from './resources/GoldService';
 import { MarketComponent } from './market/market.component';
-import { ArmyComponent } from './army/army.component';
+import { ArmyComponent } from './quarter/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './timer/timer.service';
-import {TroopTypeComponent} from './quarter/troopType.component';
 import {EventsService} from './events/events.service';
-import {MessageService} from 'primeng/components/common/messageservice';
-import {CarouselModule, MessageModule, MessagesModule} from 'primeng/primeng';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {EventsComponent} from './events/events.component';
+import {MessagesComponent} from './messages/messages.component';
+import {MessagesService} from './messages/messages.service';
 
 @NgModule({
   declarations: [
@@ -36,19 +33,14 @@ import {EventsComponent} from './events/events.component';
     ArmoryComponent,
     TownhallComponent,
     CollectorsComponent,
-    TroopTypeComponent,
-    EventsComponent
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    APP_ROUTING,
-    CarouselModule,
-    BrowserAnimationsModule,
-    MessagesModule,
-    MessageModule
+    APP_ROUTING
   ],
   providers: [
     WoodService,
@@ -57,9 +49,9 @@ import {EventsComponent} from './events/events.component';
     CollectorsService,
     TimerService,
     EventsService,
-    MessageService
+    MessagesService
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

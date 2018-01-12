@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { QuarterComponent } from './quarter/quarter.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { MarketComponent } from './market/market.component';
-import { ArmyComponent } from './army/army.component';
+import { ArmyComponent } from './quarter/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import {CollectorsComponent} from './collectors/collector.component';

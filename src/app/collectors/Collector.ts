@@ -1,5 +1,4 @@
 import { Building } from '../building';
-import { Resources } from '../resources/resources';
 
 export class Collector extends Building {
     // private resource: Resources;

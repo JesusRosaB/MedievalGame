@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ArmyService} from './army.service';
 
 @Component({
   selector: 'app-army',
@@ -6,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./army.component.css']
 })
 export class ArmyComponent implements OnInit {
-
-  constructor() { }
-
+  totalPower: number;
+  constructor(private army: ArmyService) {}
   ngOnInit() {
-
+    this.totalPower = this.army.getPower();
   }
-
 }

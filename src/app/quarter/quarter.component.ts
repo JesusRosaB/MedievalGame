@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArmyService} from './army.service';
+import {Job} from './trooptypeobject';
+import {ListaTrabajos} from './listaTrabajos';
 
 
 @Component({
@@ -7,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quarter.component.css']
 })
 export class QuarterComponent implements OnInit {
-
   constructor() {}
-
   ngOnInit() {
 
   }
+  comprar(quantity) {
 
+  }
 }
