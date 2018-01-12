@@ -1,12 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TimerService} from '../timer/timer.service';
-<<<<<<< HEAD
 import {Evento, EventoAtaque, EventoRecursos} from './Evento';
 import {MessagesService} from '../messages/messages.service';
-=======
-import {EventoAtaque, EventoRecursos} from './Evento';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
->>>>>>> eventos
 
 @Injectable()
 export class EventsService {
