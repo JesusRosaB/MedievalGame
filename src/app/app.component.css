@@ -29,6 +29,12 @@ div.fixed {
     left: 650px;
 }
 
+#recolector {
+  position: absolute;
+  top: 120px; 
+  left: 100px;
+}
+
 #cuartel {
   position: absolute;
     top: 120px; 
