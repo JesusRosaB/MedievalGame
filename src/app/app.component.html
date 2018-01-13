@@ -1,17 +1,17 @@
 <h1>
   {{title}}
+  <app-messages></app-messages>
 	<div class="routing">
 		<!-- <br>Angular Router<br> -->
 		<a routerLink="cuartel" routerLinkActive="active"><img class="pequeña" id="cuartel" src='../cuartel.png' alt="Cuartel"></a>
 		<a routerLink="recursos" routerLinkActive="active"><img class="pequeña" id="recursos" src='../recursos.png' alt="Recursos">
       <!--<app-resources></app-resources>-->
     </a>
+		<a routerLink="recursos" routerLinkActive="active"><img class="pequeña" id="recursos" src='../recursos.png' alt="Recursos"></a>
 		<a routerLink="mercado" routerLinkActive="active"><img class="pequeña" id="mercado" src='../mercado.png' alt="Mercado"></a>
 		<a routerLink="ejercito" routerLinkActive="active"><img class="pequeña" id="ejercito" src='../ejercito.png' alt="Ejercito"></a>
 		<a routerLink="armeria" routerLinkActive="active" ><img class="pequeña" id="armeria" src='../armeria.png' alt="Armeria"></a>
-    <a routerLink="Recolectores" routerLinkActive="active" > Recolectores
-      <app-collectors></app-collectors>
-    </a>
+    <a routerLink="recolectores" routerLinkActive="active" > Recolectores </a>
 		<a routerLink="ayuntamiento" routerLinkActive="active"><img class="mediana" id="ayuntamiento" src='../ayuntamiento.png' alt="Ayuntamiento"></a>
 		<br> <!-- Salto de linea para que el componente no quede muy pegado al top, puede eliminarse-->
 		<div align="center" class="container-fluid" id="router-outlet">
@@ -48,3 +48,4 @@
 
 	</div>
 </h1>
+
