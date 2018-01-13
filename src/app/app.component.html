@@ -8,13 +8,22 @@
 		<a routerLink="mercado" routerLinkActive="active"><img class="pequeña" id="mercado" src='../mercado.png' alt="Mercado"></a>
 		<a routerLink="ejercito" routerLinkActive="active"><img class="pequeña" id="ejercito" src='../ejercito.png' alt="Ejercito"></a>
 		<a routerLink="armeria" routerLinkActive="active" ><img class="pequeña" id="armeria" src='../armeria.png' alt="Armeria"></a>
-    <a routerLink="recolectores" routerLinkActive="active" > Recolectores </a>
+    <a routerLink="recolectores" routerLinkActive="active" > Recolectores 
+      <app-collectors></app-collectors>
+    </a>
 		<a routerLink="ayuntamiento" routerLinkActive="active"><img class="mediana" id="ayuntamiento" src='../ayuntamiento.png' alt="Ayuntamiento"></a>
 		<br> <!-- Salto de linea para que el componente no quede muy pegado al top, puede eliminarse-->
-		<div align="center" class="container-fluid">
-	    	<router-outlet></router-outlet>
-		</div>
-	</div>
+		
+    <div align="center" class="container-fluid" id="router-outlet">
+        <router-outlet></router-outlet>
+    </div>
+	  
+    <div id="eventos">
+      <h1>Aqui dentro ira todos los eventos que quieren mostrarse</h1>
+      <h2>ejemplo h2</h2>
+    </div> 
+  
+  </div>
 </h1>
 
 
