@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TimerService} from '../timer/timer.service';
 import {EventoAtaque, EventoRecursos} from './Evento';
-import {MessagesService} from '../messages.service';
+import {MessagesService} from '../messages/messages.service';
 import {WoodService} from '../resources/WoodService';
 import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
