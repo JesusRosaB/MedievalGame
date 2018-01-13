@@ -21,11 +21,12 @@ export class CollectorsComponent implements OnInit {
     this.collectors = this.collectorsService.getCollectors();
   }
   levelUp(collector) {
-    if (collector.levelCost() <= this.Wood.currentQuantity()) {
+    /*if (collector.levelCost() <= this.Wood.currentQuantity()) {
       this.Wood.spend(collector.levelCost());
     }
     else {
       console.log('No se puede realizar la transacción');
-    }
+    }*/
+    this.collectorsService.levelUp(collector);
   }
 }

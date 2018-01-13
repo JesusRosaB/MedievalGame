@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArmyService} from './army.service';
 import {Job} from './trooptypeobject';
 import {ListaTrabajos} from './listaTrabajos';
+import {QuarterService} from './quarter.service';
 
 
 @Component({
@@ -10,11 +11,11 @@ import {ListaTrabajos} from './listaTrabajos';
   styleUrls: ['./quarter.component.css']
 })
 export class QuarterComponent implements OnInit {
-  constructor() {}
+  constructor(private quarterservice: QuarterService) {}
   ngOnInit() {
 
   }
-  comprar(quantity) {
-
+  comprarSoldado(quantity) {
+    this.quarterservice.comprarSoldados(quantity);
   }
 }

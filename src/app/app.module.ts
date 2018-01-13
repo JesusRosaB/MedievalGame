@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -22,6 +22,7 @@ import { TimerService } from './timer/timer.service';
 import {EventsService} from './events/events.service';
 import {MessagesComponent} from './messages/messages.component';
 import {MessagesService} from './messages/messages.service';
+import {Exception} from './exceptions/Exception';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MessagesService} from './messages/messages.service';
     CollectorsService,
     TimerService,
     EventsService,
-    MessagesService
+    MessagesService,
+    {provide: ErrorHandler, useClass: Exception}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

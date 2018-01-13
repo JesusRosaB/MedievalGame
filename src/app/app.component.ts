@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TimerService} from './timer/timer.service';
 import {CollectorsService} from './collectors/collectorsService';
+import {EventsService} from './events/events.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,5 @@ import {CollectorsService} from './collectors/collectorsService';
 
 export class AppComponent {
   title = 'MedievalGame';
-  constructor(private Timer: TimerService, private collectors: CollectorsService) {}
+  constructor(private timer: TimerService, private events: EventsService, private collectors: CollectorsService) {}
 }

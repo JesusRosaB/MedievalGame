@@ -1,17 +1,21 @@
 import {Injectable} from '@angular/core';
 import {TimerService} from '../timer/timer.service';
-import {Evento, EventoAtaque, EventoRecursos} from './Evento';
+import {EventoAtaque, EventoRecursos} from './Evento';
 import {MessagesService} from '../messages/messages.service';
+import {WoodService} from '../resources/WoodService';
+import {MeatService} from '../resources/MeatService';
+import {GoldService} from '../resources/GoldService';
 
 @Injectable()
 export class EventsService {
   event = new EventoRecursos('', 0);
-  constructor(private timer: TimerService, private messages: MessagesService) {
+  constructor(private timer: TimerService, private messages: MessagesService, private Wood: WoodService,
+  private Meat: MeatService, private Gold: GoldService) {
     this.timer.eventsTimer.subscribe(() => this.lanzarEvento());
     console.log('Llego servicio eventos');
   }
   lanzarEvento() {
-    let resultado = Math.random() * 10;
+    const resultado = Math.random() * 10;
     if (resultado <= 10) {
       if (resultado < 2) {
         this.event = new EventoRecursos('Buena obtencion de recursos', Math.random() * 900 + 100);
@@ -21,7 +25,7 @@ export class EventsService {
         this.event = new EventoRecursos('Perdida de recursos', (Math.random() * - 900) - 100);
       }
       this.messages.addMessage(this.event.getMessage());
-      this.event.realizar();
+      this.realizar(this.event);
       console.log(this.event.getMessage() + ': ' + this.event.getCantidad() + '\n');
     }
     /*else if (resultado > 10) {
@@ -31,5 +35,19 @@ export class EventsService {
     else {
 
     }*/
+  }
+  realizar(e: EventoRecursos) {
+    if (e.getCantidad() < 0) {
+      console.log('Evento negativo');
+      this.Wood.loose(-e.getCantidad());
+      this.Meat.loose(-e.getCantidad());
+      this.Gold.loose(-e.getCantidad());
+    }
+    else if (e.getCantidad() > 0) {
+      console.log('Evento negativo');
+      this.Wood.increase(e.getCantidad());
+      this.Meat.increase(e.getCantidad());
+      this.Gold.increase(e.getCantidad());
+    }
   }
 }

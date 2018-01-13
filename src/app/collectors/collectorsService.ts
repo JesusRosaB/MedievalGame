@@ -24,4 +24,8 @@ export class CollectorsService {
   getCollectors() {
     return this.collectors;
   }
+
+  levelUp(collector) {
+    this.Wood.spend(1);
+  }
 }
