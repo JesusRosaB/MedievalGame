@@ -51,5 +51,5 @@ export class MarketService {
     } catch (e) { throw new Error('Carne insuficiente.'); }
     this.gold.increase(price);
     }
-  }
 }
+
