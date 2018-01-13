@@ -6,6 +6,7 @@ export class Job {
     private level: number;
 
     private power: number[];
+    private health: number;
     private goldCost: number[];
     private meatCost: number[];
     private upgradeCost: number[];
@@ -25,6 +26,10 @@ export class Job {
         return this.power[this.level];
     }
 
+    getHealth(): number {
+      return this.health;
+    }
+
     getGoldCost(): number {
       return this.goldCost[this.level];
     }
@@ -37,15 +42,21 @@ export class Job {
         return this.upgradeCost[this.level];
     }
 
+    levelUp(): void {
+      this.level += 1;
+    }
+
     newTroop(): Troop
     {
         return new Troop(this);
     }
 
-    constructor(name: string, level: number, power: number[], gc: number[], mc: number[], uc: number[]) {
+    constructor(id: number, name: string, level: number, power: number[], health: number, gc: number[], mc: number[], uc: number[]) {
+        this.id = id;
         this.jobName = name;
         this.power = power;
         this.level = level;
+        this.health = health;
         this.goldCost = gc;
         this.meatCost = mc;
         this.upgradeCost = uc;
@@ -60,6 +71,7 @@ export class Troop extends ArmyElement{
     constructor(job: Job) {
         super();
         this.job = job;
+        this.health = job.getHealth();
     }
     getId(): number {
         return this.id;
@@ -74,7 +86,16 @@ export class Troop extends ArmyElement{
     getPower(): number {
         return this.job.getPower();
     }
+
     getLevel(): number {
         return this.job.getLevel();
+    }
+
+    getCurrentHealth(): number {
+      return this.health;
+    }
+
+    getMaxHealth(): number {
+      return this.job.getHealth();
     }
 }
