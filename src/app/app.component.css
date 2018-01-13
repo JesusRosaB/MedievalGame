@@ -1,6 +1,6 @@
 .routing {
   background-image: url("../cesped.jpg");
-  width: 1400px; height: 330px;
+  width: 1400px; height: 400px;
 }
 
 div.fixed {
@@ -17,7 +17,7 @@ div.fixed {
 
 #eventos{
   position: absolute;
-  top: 440px;
+  top: 510px;
   background-color: grey;
   width: 1400px; height: auto;
   text-align: center
