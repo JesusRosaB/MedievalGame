@@ -1,5 +1,5 @@
 import {ErrorHandler, Injectable} from '@angular/core';
-import {MessagesService} from '../messages/messages.service';
+import {MessagesService} from '../messages.service';
 
 @Injectable()
 export class Exception implements ErrorHandler {

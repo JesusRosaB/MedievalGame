@@ -20,8 +20,8 @@ import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './timer/timer.service';
 import {EventsService} from './events/events.service';
-import {MessagesComponent} from './messages/messages.component';
-import {MessagesService} from './messages/messages.service';
+import {MessagesComponent} from './messages.component';
+import {MessagesService} from './messages.service';
 import {Exception} from './exceptions/Exception';
 
 @NgModule({
