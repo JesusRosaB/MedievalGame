@@ -5,3 +5,15 @@
 img.muy-pequeña {
 	width: 40px; height: 40px;
 }
+
+#madera {
+	background-image: url(../../fotos/wood.png);
+}
+
+#carne {
+	background-image: url(../../fotos/meat.png);
+}
+
+#oro {
+	background-image: url(../../fotos/gold.png);
+}

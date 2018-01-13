@@ -21,35 +21,35 @@ export class MarketService {
   }
 
   buyWood(quantity: number): void {
-    let price :number = this.market.purchaseValue[0];
-    if (this.gold.currentQuantity() > price) {
+    let price: number = this.market.purchaseValue[0];
+    try {
       this.gold.spend(price);
-      this.wood.increase(quantity);
-    }
+    } catch (e) { throw new Error('Oro insuficiente.'); }
+    this.wood.increase(quantity);
   }
 
-  buyMeat(quantity: number) {
+  buyMeat(quantity: number) : void {
     let price: number = this.market.purchaseValue[1];
-    if (this.gold.currentQuantity() > price) {
+    try {
       this.gold.spend(price);
-      this.meat.increase(quantity);
-    }
+    } catch (e) { throw new Error('Oro insuficiente.'); }
+    this.meat.increase(quantity);
   }
 
-  sellWood(quantity: number) {
-    let price: number = this.market.saleValue[0];  
-    if (this.wood.currentQuantity() > quantity) {
+  sellWood(quantity: number) : void {
+    let price: number = this.market.saleValue[0];
+    try {
       this.wood.spend(quantity);
-      this.gold.increase(price);
-    }
+    } catch (e) { throw new Error('Madera insuficiente.'); }
+    this.gold.increase(price);
   }
 
-  sellMeat(quantity: number) {
+  sellMeat(quantity: number) : void {
     let price: number = this.market.saleValue[1];
-    if (this.meat.currentQuantity() > quantity) {
+    try {
       this.meat.spend(quantity);
-      this.gold.increase(price);
+    } catch (e) { throw new Error('Carne insuficiente.'); }
+    this.gold.increase(price);
     }
-  }
-
 }
+
