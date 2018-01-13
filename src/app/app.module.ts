@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -20,9 +20,12 @@ import { CollectorsComponent } from './collectors/collector.component';
 import { CollectorsService } from './collectors/collectorsService';
 import { TimerService } from './timer/timer.service';
 import {EventsService} from './events/events.service';
+<<<<<<< HEAD
 import {MessagesComponent} from './messages.component';
 import {MessagesService} from './messages.service';
 import {Exception} from './exceptions/Exception';
+=======
+>>>>>>> f6e8af65bcba961be1edc7f75c9138ac3e266d07
 
 @NgModule({
   declarations: [
@@ -33,8 +36,7 @@ import {Exception} from './exceptions/Exception';
     ArmyComponent,
     ArmoryComponent,
     TownhallComponent,
-    CollectorsComponent,
-    MessagesComponent
+    CollectorsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,11 +51,9 @@ import {Exception} from './exceptions/Exception';
     GoldService,
     CollectorsService,
     TimerService,
-    EventsService,
-    MessagesService,
-    {provide: ErrorHandler, useClass: Exception}
+    EventsService
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

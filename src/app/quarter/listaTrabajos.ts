@@ -13,6 +13,7 @@ export class ListaTrabajos {
   }
 
   getSoldado() {
-    return Job[0].newTroop();
+    return Job[0];
   }
+
 }

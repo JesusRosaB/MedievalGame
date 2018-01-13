@@ -19,13 +19,4 @@ export class MeatService {
     this.Meat.quantity -= quantity;
     this.meatObserver.next(this.currentQuantity());
   }
-
-  loose(quantity) {
-    if (this.currentQuantity() < quantity){
-      this.Meat.quantity = 0;
-    }
-    else {
-      this.Meat.quantity -= quantity;
-    }
-  }
 }

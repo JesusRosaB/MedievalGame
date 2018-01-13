@@ -20,12 +20,4 @@ export class GoldService {
     this.Gold.quantity -= quantity;
     this.goldObserver.next(this.currentQuantity());
   }
-  loose(quantity) {
-    if (this.currentQuantity() < quantity){
-      this.Gold.quantity = 0;
-    }
-    else {
-      this.Gold.quantity -= quantity;
-    }
-  }
 }

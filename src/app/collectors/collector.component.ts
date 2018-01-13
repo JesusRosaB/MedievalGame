@@ -2,7 +2,9 @@
  * Created by jose on 16/12/17.
  */
 import {Component, OnInit} from '@angular/core';
+import {CarouselModule} from 'primeng/primeng';
 import {WoodService} from '../resources/WoodService';
+import {TimerService} from '../timer/timer.service';
 import {Collector} from './Collector';
 import {CollectorsService} from './collectorsService';
 
@@ -14,19 +16,8 @@ import {CollectorsService} from './collectorsService';
 
 export class CollectorsComponent implements OnInit {
   collectors: Collector[];
-  constructor(private collectorsService: CollectorsService, private Wood: WoodService) {
-    console.log('Llego componentes recolectores');
-  }
+  constructor(private collectorsService: CollectorsService) {}
   ngOnInit() {
     this.collectors = this.collectorsService.getCollectors();
-  }
-  levelUp(collector) {
-    /*if (collector.levelCost() <= this.Wood.currentQuantity()) {
-      this.Wood.spend(collector.levelCost());
-    }
-    else {
-      console.log('No se puede realizar la transacción');
-    }*/
-    this.collectorsService.levelUp(collector);
   }
 }
