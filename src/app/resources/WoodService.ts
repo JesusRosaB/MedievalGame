@@ -14,9 +14,8 @@ export class WoodService {
     this.woodObserver.next(this.currentQuantity());
   }
   spend(quantity) {
-    console.log(this.currentQuantity());
     if (this.Wood.quantity < quantity) {
-      throw new Error('No hay suficiente madera');
+      throw new Error();
     }
     else{
       this.Wood.quantity -= quantity;
@@ -26,7 +25,6 @@ export class WoodService {
   loose(quantity) {
     if (this.Wood.quantity < quantity) {
       this.Wood.quantity = 0;
-      console.log(this.currentQuantity());
     }
     else {
       this.Wood.quantity -= quantity;

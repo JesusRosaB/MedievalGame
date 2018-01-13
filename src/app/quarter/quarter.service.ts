@@ -11,11 +11,11 @@ export class QuarterService {
     while (cont < quantity) {
       try {
         this.wood.spend(1);
-      }catch (e) {
+        this.army.addComponent(this.trooptype.getSoldado());
+        ++cont;
+      } catch (e) {
         throw new Error('No se puede comprar el soldado');
       }
-      this.army.addComponent(this.trooptype.getSoldado());
-      ++cont;
     }
   }
 }

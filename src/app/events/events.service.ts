@@ -12,17 +12,16 @@ export class EventsService {
   constructor(private timer: TimerService, private messages: MessagesService, private Wood: WoodService,
   private Meat: MeatService, private Gold: GoldService) {
     this.timer.eventsTimer.subscribe(() => this.lanzarEvento());
-    console.log('Llego servicio eventos');
   }
   lanzarEvento() {
     const resultado = Math.random() * 10;
     if (resultado <= 10) {
       if (resultado < 2) {
-        this.event = new EventoRecursos('Buena obtencion de recursos', Math.random() * 900 + 100);
+        this.event = new EventoRecursos('Buena obtencion de recursos', Math.floor(Math.random() * 900 + 100));
       }
       else {
         console.log('Enviando evento recursos negativo');
-        this.event = new EventoRecursos('Perdida de recursos', (Math.random() * - 900) - 100);
+        this.event = new EventoRecursos('Perdida de recursos', Math.floor((Math.random() * - 900) - 100));
       }
       this.messages.addMessage(this.event.getMessage());
       this.realizar(this.event);

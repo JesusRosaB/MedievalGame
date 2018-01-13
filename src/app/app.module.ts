@@ -23,6 +23,9 @@ import {EventsService} from './events/events.service';
 import {MessagesComponent} from './messages/messages.component';
 import {MessagesService} from './messages/messages.service';
 import {Exception} from './exceptions/Exception';
+import {QuarterService} from './quarter/quarter.service';
+import {ArmyService} from './quarter/army.service';
+import {ListaTrabajos} from './quarter/listaTrabajos';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import {Exception} from './exceptions/Exception';
     TimerService,
     EventsService,
     MessagesService,
-    {provide: ErrorHandler, useClass: Exception}
+    {provide: ErrorHandler, useClass: Exception},
+    QuarterService,
+    ArmyService,
+    ListaTrabajos
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
