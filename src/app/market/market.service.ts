@@ -8,7 +8,7 @@ import { Market } from '../market';
 export class MarketService {
   market: Market;
 
-  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private m: Market) {
+  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService) {
     this.market = new Market(1, 1000, [0.5, 0.5], [0.5, 0.5], 0.1);
   }
 

@@ -6,12 +6,12 @@ import { MarketService } from "./market.service";
   selector: 'app-market',
   templateUrl: './market.component.html',
   styleUrls: ['./market.component.css'],
+  providers: [ MarketService ],
 })
 export class MarketComponent implements OnInit {
-  marketService :MarketService;
   prices: number[];
 
-  constructor(marketService: MarketService) { }
+  constructor(private marketService: MarketService) { }
 
   ngOnInit() {
     this.prices = [this.marketService.getResourcePurchasePrice[0], this.marketService.getResourcePurchasePrice[1],
