@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {DoCheck, Injectable} from '@angular/core';
 import {Resources} from './resources';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 

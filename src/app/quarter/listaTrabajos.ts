@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Job} from './trooptypeobject';
 
-
 @Injectable()
 export class ListaTrabajos {
   trabajos: Job[] = [];
