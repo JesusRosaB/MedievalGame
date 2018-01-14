@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class ArmyService {
 
-  private members: ArmyElement[];
+  private members: ArmyElement[] = [];
 
   constructor() {}
 

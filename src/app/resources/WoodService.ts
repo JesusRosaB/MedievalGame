@@ -1,4 +1,4 @@
-import {DoCheck, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Resources} from './resources';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
@@ -15,7 +15,7 @@ export class WoodService {
   }
   spend(quantity) {
     if (this.Wood.quantity < quantity) {
-      throw new Error();
+      throw new Error('madera');
     }
     else{
       this.Wood.quantity -= quantity;

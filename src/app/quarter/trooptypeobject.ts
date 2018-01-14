@@ -46,8 +46,7 @@ export class Job {
       this.level += 1;
     }
 
-    newTroop(): Troop
-    {
+    newTroop(): Troop {
         return new Troop(this);
     }
 

@@ -14,7 +14,7 @@ export class QuarterService {
         this.army.addComponent(this.trooptype.getSoldado());
         ++cont;
       } catch (e) {
-        throw new Error('No se puede comprar el soldado');
+        throw new Error('No se puede comprar el soldado por falta de recursos de :' + e.message);
       }
     }
   }

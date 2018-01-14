@@ -16,6 +16,7 @@ export class MessagesService {
 
   addMessage(msg: string) {
     this.Messages.push(msg);
+    console.log(msg);
     ++this.cont;
   }
 

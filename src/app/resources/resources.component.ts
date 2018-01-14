@@ -11,12 +11,7 @@ import {GoldService} from './GoldService';
 
 export class ResourcesComponent implements OnInit, DoCheck {
   recursos: number[] = [];
-  constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService) {
-    /*Wood.woodObserver.subscribe(x => this.recursos[0] = x);
-    Meat.meatObserver.subscribe(x => this.recursos[1] = x);
-    Gold.goldObserver.subscribe(x => this.recursos[2] = x);*/
-    // console.log('Llego componente recursos');
-  }
+  constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService) {}
   ngOnInit() {
     this.recursos.push(this.Wood.currentQuantity(), this.Meat.currentQuantity(), this.Gold.currentQuantity());
   }

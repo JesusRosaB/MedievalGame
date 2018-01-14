@@ -4,8 +4,8 @@ import {MessagesService} from '../messages/messages.service';
 @Injectable()
 export class Exception implements ErrorHandler {
   constructor(private msg: MessagesService) {}
-  handleError(error) {
-    this.msg.addMessage(error);
+  handleError(error: Error) {
+    this.msg.addMessage(error.message);
   }
 
 }
