@@ -17,6 +17,9 @@ export class GoldService {
     this.goldObserver.next(this.currentQuantity());
   }
   spend(quantity) {
+    if (this.Gold.quantity < quantity) {
+      throw new Error('oro');
+    }
     this.Gold.quantity -= quantity;
     this.goldObserver.next(this.currentQuantity());
   }

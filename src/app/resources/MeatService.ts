@@ -16,6 +16,9 @@ export class MeatService {
     this.meatObserver.next(this.currentQuantity());
   }
   spend(quantity) {
+    if (this.Meat.quantity < quantity) {
+      throw new Error('carne');
+    }
     this.Meat.quantity -= quantity;
     this.meatObserver.next(this.currentQuantity());
   }
