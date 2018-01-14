@@ -25,7 +25,7 @@ export class CollectorsService {
     return this.collectors;
   }
 
-  levelUp(collector) {
-    this.Wood.spend(1);
+  levelUp(collector: Collector) {
+    this.Wood.spend(collector.levelCost());
   }
 }

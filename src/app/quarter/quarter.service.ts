@@ -6,16 +6,5 @@ import {WoodService} from '../resources/WoodService';
 @Injectable()
 export class QuarterService {
   constructor(private trooptype: ListaTrabajos, private army: ArmyService, private wood: WoodService) {}
-  comprarSoldados(quantity) {
-    let cont = 0;
-    while (cont < quantity) {
-      try {
-        this.wood.spend(1);
-        this.army.addComponent(this.trooptype.getSoldado());
-        ++cont;
-      } catch (e) {
-        throw new Error('No se puede comprar el soldado por falta de recursos de :' + e.message);
-      }
-    }
-  }
+
 }

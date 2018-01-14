@@ -1,14 +1,28 @@
-<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  <button type="button" class="btn btn-secondary" (click)="this.comprarSoldado(1)">1</button>
-  <button type="button" class="btn btn-secondary" (click)="this.comprarSoldado(5)">5</button>
-
-  <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Mas cantidades
-    </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" href="#" (click)="this.comprarSoldado(25)">25</a>
-      <a class="dropdown-item" href="#" (click)="this.comprarSoldado(100)">100</a>
-    </div>
-  </div>
+<div class="container">
+  <ul>
+    <li *ngFor="let job of trabajos">
+      <div class="row">
+        <div class="col-sm">
+          <h3>Name: {{job.getJobName()}}</h3>
+        </div>
+        <div class="col-sm">
+          <h5>Level: {{job.getLevel()}}</h5>
+          <h5>Power: {{job.getPower()}}</h5>
+          <h5>MeatCost: {{job.getMeatCost()}}</h5>
+          <h5>GoldCost: {{job.getGoldCost()}}</h5>
+        </div>
+        <div class="col-sm">
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-secondary" (click)="comprarTropa(1, job.getId())">1</button>
+            <button type="button" class="btn btn-secondary" (click)="comprarTropa(5, job.getId())">5</button>
+            <button type="button" class="btn btn-secondary" (click)="comprarTropa(25, job.getId())">25</button>
+            <button type="button" class="btn btn-secondary" (click)="comprarTropa(100, job.getId())">100</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
+
+
+

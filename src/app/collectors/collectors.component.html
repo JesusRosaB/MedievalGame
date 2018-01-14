@@ -1,1 +1,18 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let collector of collectors">
+      <div class="row">
+        <div class="col-sm">
+          <h3>Name: {{collector.getName()}}</h3>
+        </div>
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary" (click)="levelUp(collector)">Subir de nivel</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 

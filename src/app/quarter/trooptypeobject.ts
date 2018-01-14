@@ -23,7 +23,7 @@ export class Job {
     }
 
     getPower(): number {
-        return this.power[this.level];
+        return this.power[this.level - 1];
     }
 
     getHealth(): number {
@@ -31,15 +31,15 @@ export class Job {
     }
 
     getGoldCost(): number {
-      return this.goldCost[this.level];
+      return this.goldCost[this.level - 1];
     }
 
     getMeatCost(): number {
-        return this.meatCost[this.level];
+        return this.meatCost[this.level - 1];
     }
 
     getUpgradeGost(): number {
-        return this.upgradeCost[this.level];
+        return this.upgradeCost[this.level - 1];
     }
 
     levelUp(): void {

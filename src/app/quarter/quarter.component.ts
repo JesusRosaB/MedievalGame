@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ArmyService} from './army.service';
-import {Job} from './trooptypeobject';
 import {ListaTrabajos} from './listaTrabajos';
-import {QuarterService} from './quarter.service';
-
+import {Job} from './trooptypeobject';
 
 @Component({
   selector: 'app-quarter',
@@ -11,11 +8,12 @@ import {QuarterService} from './quarter.service';
   styleUrls: ['./quarter.component.css']
 })
 export class QuarterComponent implements OnInit {
-  constructor(private quarterservice: QuarterService) {}
+  trabajos: Job[];
+  constructor(private lista: ListaTrabajos) {}
   ngOnInit() {
-
+    this.trabajos = this.lista.getJobs();
   }
-  comprarSoldado(quantity) {
-    this.quarterservice.comprarSoldados(quantity);
+  comprarTropa(quantity , id) {
+    this.lista.efectuarCompra(quantity, id);
   }
 }
