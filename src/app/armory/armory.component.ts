@@ -6,7 +6,8 @@ import { ListaTrabajos } from '../quarter/listaTrabajos';
 @Component({
   selector: 'app-armory',
   templateUrl: './armory.component.html',
-  styleUrls: ['./armory.component.css']
+  styleUrls: ['./armory.component.css'],
+  providers: [ ArmoryService ],
 })
 export class ArmoryComponent implements OnInit {
 
@@ -15,7 +16,7 @@ export class ArmoryComponent implements OnInit {
   ngOnInit() {
   }
 
-  upgradeJob(job: Job) {
-    this.armoryService.upgradeJob(job.getId());
+  upgradeSoldier() {
+    this.armoryService.upgradeJob(0);
   }
 }

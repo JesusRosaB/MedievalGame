@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ListaTrabajos } from '../quarter/listaTrabajos';
 import { WoodService } from '../resources/WoodService';
+import { Armory } from '../armory';
 
 @Injectable()
 export class ArmoryService {
-  constructor(private listaTrabajos: ListaTrabajos, private armory: ArmoryService, private wood: WoodService) { }
+  armory: Armory;
+
+  constructor(private listaTrabajos: ListaTrabajos, private wood: WoodService) {
+    this.armory = new Armory(1, 400);
+}
 
   upgradeJob(id: number): void {
     let price = this.listaTrabajos.trabajos[id].getUpgradeGost();

@@ -15,6 +15,8 @@ export class Market extends Building{
         this.basePurchasePrices = basePurchasePrices;
         this.baseSalePrices = baseSalePrices;
         this.levelGrowth = levelGrowth;
+        this.purchaseMod = basePurchasePrices;
+        this.saleMod = baseSalePrices;
         for (let i of this.purchaseMod) {
           i = 1;
         }
@@ -34,13 +36,14 @@ export class Market extends Building{
     getPurchasePrices(): number[] {
         let truePrices: number[] = this.basePurchasePrices;
         for (let i: number = 0; i < truePrices.length; i++){
+            truePrices[i] += truePrices[i] * this.levelGrowth * this.level;
             truePrices[i] *= this.purchaseMod[i];
         }
         return truePrices;
     }
 
     getSalePrices(): number[] {
-        let truePrices = this.baseSalePrices;
+        let truePrices :number[] = this.baseSalePrices;
         for (let i: number = 0; i < truePrices.length; i++) {
             truePrices[i] *= this.saleMod[i];
         }

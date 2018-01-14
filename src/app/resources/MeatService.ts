@@ -26,7 +26,7 @@ export class MeatService {
   }
 
   loose(quantity) {
-    if (this.currentQuantity() < quantity){
+    if (this.currentQuantity() < quantity) {
       this.Meat.quantity = 0;
     }
     else {

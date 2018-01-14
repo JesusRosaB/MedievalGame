@@ -6,9 +6,10 @@ export class Armory extends Building {
 
     constructor(level: number, upgradeCost: number/*[]*/) {
       super(level, upgradeCost, 'armory');
-      for (let i of this.mod){
+      this.mod = [1, 1, 1, 1, 1];
+      /*for (let i of this.mod){
         i = 1;
-      }
+      }*/
     }
 
     getUpgradeCost(job: Job): number {

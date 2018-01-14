@@ -9,19 +9,19 @@ export class MarketService {
   market: Market;
 
   constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService) {
-    this.market = new Market(1, 1000, [0.5, 0.5], [0.5, 0.5], 0.1);
+    this.market = new Market(1, 1000, [2, 2], [0.5, 0.5], 0.1);
   }
 
   getResourcePurchasePrice(resource_id :number) :number {
-    return this.market.getPurchasePrices[resource_id];
+    return this.market.getPurchasePrices()[resource_id];
   }
 
   getResourceSalePrice(resource_id: number): number {
-    return this.market.getSalePrices[resource_id];
+    return this.market.getSalePrices()[resource_id];
   }
 
   buyWood(quantity: number): void {
-    let price: number = this.market.purchaseValue[0];
+    let price: number = this.market.getPurchasePrices()[0] * quantity;
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -29,7 +29,7 @@ export class MarketService {
   }
 
   buyMeat(quantity: number) : void {
-    let price: number = this.market.purchaseValue[1];
+    let price: number = this.market.getPurchasePrices()[1] * quantity;
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -37,7 +37,7 @@ export class MarketService {
   }
 
   sellWood(quantity: number) : void {
-    let price: number = this.market.saleValue[0];
+    let price: number = this.market.getSalePrices()[0] * quantity;
     try {
       this.wood.spend(quantity);
     } catch (e) { throw new Error('Madera insuficiente.'); }
@@ -45,7 +45,7 @@ export class MarketService {
   }
 
   sellMeat(quantity: number) : void {
-    let price: number = this.market.saleValue[1];
+    let price: number = this.market.getSalePrices()[1];
     try {
       this.meat.spend(quantity);
     } catch (e) { throw new Error('Carne insuficiente.'); }
