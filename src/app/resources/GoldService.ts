@@ -8,13 +8,11 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class GoldService {
   Gold: Resources = new Resources(3, 'Oro', 500);
-  goldObserver = BehaviorSubject.create(this.Gold.quantity);
   currentQuantity() {
     return this.Gold.quantity;
   }
   increase(quantity) {
     this.Gold.quantity += quantity;
-    this.goldObserver.next(this.currentQuantity());
   }
   spend(quantity) {
     if (this.Gold.quantity < quantity) {
@@ -22,7 +20,6 @@ export class GoldService {
     }
     else{
       this.Gold.quantity -= quantity;
-      this.goldObserver.next(this.Gold.quantity);
     }
   }
   loose(quantity) {

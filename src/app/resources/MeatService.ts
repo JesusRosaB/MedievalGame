@@ -7,13 +7,11 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class MeatService {
   Meat: Resources = new Resources(2, 'Carne', 500);
-  meatObserver = BehaviorSubject.create(this.Meat.quantity);
   currentQuantity() {
     return this.Meat.quantity;
   }
   increase(quantity) {
     this.Meat.quantity += quantity;
-    this.meatObserver.next(this.currentQuantity());
   }
   spend(quantity) {
     if (this.Meat.quantity < quantity) {
@@ -21,7 +19,6 @@ export class MeatService {
     }
     else{
       this.Meat.quantity -= quantity;
-      this.meatObserver.next(this.Meat.quantity);
     }
   }
 
