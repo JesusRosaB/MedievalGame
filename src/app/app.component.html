@@ -1,6 +1,13 @@
 <h1>
   <div class="inline"> {{title}}</div>
-  <div class="inline"><app-messages></app-messages></div>
+  <div class="inline">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    <a href="/mensajes" target="_blank" 
+    onclick="window.open(this.href, this.target, 'top=150,left=400, width=700,height=450'); return false;" >
+    Eventos</a>
+    </button>
+  </div>
+  <!--<div class="inline"><app-messages></app-messages></div>-->
   <div class="inline"><app-resources></app-resources></div>
 
 	<div class="routing">
@@ -9,20 +16,22 @@
 		<a routerLink="mercado" routerLinkActive="active"><img class="pequeña" id="mercado"></a>
 		<a routerLink="ejercito" routerLinkActive="active"><img class="pequeña" id="ejercito"></a>
 		<a routerLink="armeria" routerLinkActive="active" ><img class="pequeña" id="armeria"></a>
-    <a routerLink="recolectores" routerLinkActive="active" ><img class="pequeña" id="recolector"> 
-      <app-collectors></app-collectors>
-    </a>
+    <a routerLink="recolectores" routerLinkActive="active" ><img class="pequeña" id="recolector"></a>
+     <!-- El routerlink ya manda a app-collectors con esto lo llamaria 2 veces
+     <app-collectors></app-collectors>
+    </a> -->
 		<a routerLink="ayuntamiento" routerLinkActive="active"><img class="mediana" id="ayuntamiento"></a>
 		<br> <!-- Salto de linea para que el componente no quede muy pegado al top, puede eliminarse-->
 		
-    <div align="center" class="container-fluid" id="router-outlet">
+    <div align="center" class="container-fluid" class="router-outlet">
         <router-outlet></router-outlet>
     </div>
 	  
+    <!-- 
     <div id="eventos">
       <h1>Aqui dentro ira todos los eventos que quieren mostrarse</h1>
       <h2>ejemplo h2</h2>
-    </div> 
+    </div> -->
   
   </div>
 </h1>

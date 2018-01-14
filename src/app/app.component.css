@@ -14,7 +14,7 @@ div.fixed {
     right: 100px;
 }
 
-#router-outlet{
+.router-outlet{
   position: absolute;
     top: 45%; 
     left: 35%;

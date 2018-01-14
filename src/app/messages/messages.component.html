@@ -1,7 +1,15 @@
+<!--
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Events {{cont}}
+  <a href="/mensajes" target="_blank" 
+  onclick="window.open(this.href, this.target, 'top=150,left=400, width=700,height=450'); return false;" >
+  Eventos {{cont}}</a>
 </button>
-
+-->
+<div id="eventos">
+      <h1>Eventos actuales = {{cont}}</h1>
+      <h1>Aqui dentro ira todos los eventos que quieren mostrarse</h1>
+      <h2>ejemplo h2</h2>
+</div> 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">

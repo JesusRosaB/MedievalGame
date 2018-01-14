@@ -6,8 +6,10 @@ import { ArmyComponent } from './quarter/army.component';
 import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
+import { MessagesComponent } from './messages/messages.component';
 
 const APP_ROUTES: Routes = [
+  { path: 'mensajes', component: MessagesComponent },
   { path: 'cuartel', component: QuarterComponent },
   { path: 'recursos', component: ResourcesComponent },
   { path: 'mercado', component: MarketComponent },
