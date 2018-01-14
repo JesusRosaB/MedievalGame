@@ -1,3 +1,8 @@
+div.inline { 
+  float:left; 
+  margin-right: 100px;
+}
+
 .routing {
   background-image: url("../cesped.jpg");
   width: 1400px; height: 400px;
@@ -17,7 +22,7 @@ div.fixed {
 
 #eventos{
   position: absolute;
-  top: 510px;
+  top: 470px;
   background-color: grey;
   width: 1400px; height: auto;
   text-align: center
