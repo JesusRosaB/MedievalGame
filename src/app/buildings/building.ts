@@ -14,10 +14,10 @@ export abstract class Building {
         return this.level;
     }
     levelCostWood(): number {
-      return this.upgradeCostWood[this.level];
+      return this.upgradeCostWood[this.level-1];
     }
     levelCostGold(): number {
-      return this.upgradeCostGold[this.level];
+      return this.upgradeCostGold[this.level-1];
     }
     levelUp(): void {
         this.level++;

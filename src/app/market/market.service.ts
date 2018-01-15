@@ -22,6 +22,7 @@ export class MarketService {
 
   buyWood(quantity: number): void {
     let price: number = this.market.getPurchasePrices()[0] * quantity;
+    console.log(price);
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -29,7 +30,9 @@ export class MarketService {
   }
 
   buyMeat(quantity: number): void {
+    console.log(this.market.getPurchasePrices())
     let price: number = this.market.getPurchasePrices()[1] * quantity;
+    console.log(price);
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -38,6 +41,7 @@ export class MarketService {
 
   sellWood(quantity: number): void {
     let price: number = this.market.getSalePrices()[0] * quantity;
+    console.log(price);
     try {
       this.wood.spend(quantity);
     } catch (e) { throw new Error('Madera insuficiente.'); }

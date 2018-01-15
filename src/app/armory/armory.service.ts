@@ -12,7 +12,7 @@ export class ArmoryService {
 }
 
   upgradeJob(id: number): void {
-    let price = this.listaTrabajos.trabajos[id].getUpgradeGost();
+    let price = this.listaTrabajos.trabajos[id].getUpgradeCost();
     try {
       this.wood.spend(price);
     } catch (e) {

@@ -38,7 +38,7 @@ export class Job {
         return this.meatCost[this.level - 1];
     }
 
-    getUpgradeGost(): number {
+    getUpgradeCost(): number {
         return this.upgradeCost[this.level - 1];
     }
 
