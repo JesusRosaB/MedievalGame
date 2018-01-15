@@ -1,7 +1,6 @@
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  <button type="button" class="btn btn-secondary" (click)="this.buyMeat(10)">Comprar Carne(10)</button>
-  <button type="button" class="btn btn-secondary" (click)="this.buyWood(10)">Comprar Madera(10)</button>
-  <button type="button" class="btn btn-secondary" (click)="this.sellMeat(10)">Vender Carne(10)</button>
-  <button type="button" class="btn btn-secondary" (click)="this.sellWood(10)">Vender Madera(10)</button>
-
+  <button type="button" class="btn btn-secondary" (click)="this.buyMeat(10)">Comprar 10 Carne ({{this.purchasePrices[0]*10}} Oro)</button>
+  <button type="button" class="btn btn-secondary" (click)="this.buyWood(10)">Comprar 10 Madera ({{this.purchasePrices[1]*10}} Oro)</button>
+  <button type="button" class="btn btn-secondary" (click)="this.sellMeat(10)">Vender 10 Carne ({{this.salePrices[1]*10}} Oro)</button>
+  <button type="button" class="btn btn-secondary" (click)="this.sellWood(10)">Vender 10 Madera ({{this.salePrices[1]*10}} Oro)</button>
 </div>

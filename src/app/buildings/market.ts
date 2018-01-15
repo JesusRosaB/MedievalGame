@@ -15,14 +15,16 @@ export class Market extends Building{
         this.basePurchasePrices = basePurchasePrices;
         this.baseSalePrices = baseSalePrices;
         this.levelGrowth = levelGrowth;
-        this.purchaseMod = basePurchasePrices;
+        this.purchaseMod = [1, 1];
+        this.saleMod = [1, 1];
+        /**this.purchaseMod = basePurchasePrices;
         this.saleMod = baseSalePrices;
         for (let i of this.purchaseMod) {
           i = 1;
         }
         for (let i of this.saleMod) {
           i = 1;
-        }
+        }*/
     }
 
     purchaseValue(amount: number, res: Resources): number {
@@ -34,12 +36,19 @@ export class Market extends Building{
     }
 
     getPurchasePrices(): number[] {
-        let truePrices: number[] = this.basePurchasePrices;
-        for (let i: number = 0; i < truePrices.length; i++){
-            truePrices[i] += truePrices[i] * this.levelGrowth * this.level;
-            truePrices[i] *= this.purchaseMod[i];
+      let truePrices: number[] = this.basePurchasePrices;
+      for (let i: number = 0; i < truePrices.length; i++) {
+        truePrices[i] *= this.saleMod[i];
+      }
+      return truePrices;
+      /*
+        this.truePrices = this.basePurchasePrices;
+        for (let i: number = 0; i < this.truePrices.length; i++){
+          console.log(this.levelGrowth);
+          this.truePrices[i] = this.truePrices[i] * (1 - (this.levelGrowth * (2)));//this.level - 1)));
+            this.truePrices[i] *= this.purchaseMod[i];
         }
-        return truePrices;
+        return this.truePrices;*/
     }
 
     getSalePrices(): number[] {
