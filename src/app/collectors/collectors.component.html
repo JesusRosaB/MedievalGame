@@ -8,6 +8,11 @@
         <div class="col-sm">
           <h5>Produccion: {{collector.yieldValue()}} por segundo.</h5>
         </div>
+        <div class="col-sm">
+          <h5>Coste de madera del siguiente nivel: {{collector.levelCostWood()}}</h5>
+          <h5>Coste de oro del siguiente nivel: {{collector.levelCostGold()}}</h5>
+          <button type="button" class="btn btn-primary" (click)="levelUp(collector)">Subir de nivel</button>
+        </div>
       </div>
     </li>
   </ul>

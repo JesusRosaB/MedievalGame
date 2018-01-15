@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {TownhallService} from './townhall.service';
-import {Building} from '../buildings/building';
+import {Townhall} from '../buildings/townhall';
 
 @Component({
   selector: 'app-townhall',
   templateUrl: './townhall.component.html',
   styleUrls: ['./townhall.component.css']
 })
-export class TownhallComponent implements OnInit {
-  edificios: Building[] = [];
+export class TownhallComponent implements OnInit, DoCheck {
+  ayuntamiento: Townhall;
   constructor(private townhall: TownhallService) {}
   ngOnInit() {
-    this.edificios = this.townhall.getBuilding();
+    this.ayuntamiento = this.townhall.getTownhall();
   }
-  levelUp(building: Building) {
-    this.townhall.levelUp(building);
+  levelUp() {
+    this.townhall.buildingLevelUp(this.ayuntamiento);
+  }
+  ngDoCheck() {
+    if (this.ayuntamiento !== this.townhall.getTownhall()) {
+      this.ayuntamiento = this.townhall.getTownhall();
+    }
   }
 }

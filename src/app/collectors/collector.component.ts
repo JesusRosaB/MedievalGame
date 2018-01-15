@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from '@angular/core';
 import {Collector} from '../buildings/Collector';
-import {TownhallService} from '../townhall/townhall.service';
+import {CollectorsService} from './collectorsService';
 
 @Component({
   selector: 'app-collectors',
@@ -13,8 +13,11 @@ import {TownhallService} from '../townhall/townhall.service';
 
 export class CollectorsComponent implements OnInit {
   collectors: Collector[] = [];
-  constructor(private townhall: TownhallService) {}
+  constructor(private collectorservice: CollectorsService) {}
   ngOnInit() {
-    this.collectors = this.townhall.getCollectors();
+    this.collectors = this.collectorservice.getCollectors();
+  }
+  levelUp(collector) {
+    this.collectorservice.levelUpCollector(collector);
   }
 }

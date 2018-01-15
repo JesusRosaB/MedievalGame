@@ -1,14 +1,18 @@
 import {Injectable} from '@angular/core';
 import {Resources} from './resources';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {TownhallService} from '../townhall/townhall.service';
 
 @Injectable()
 export class WoodService {
   private Wood: Resources = new Resources(1, 'Madera', 500);
+  constructor(private townhall: TownhallService) {}
   currentQuantity() {
     return this.Wood.quantity;
   }
   increase(quantity) {
+    if (this.currentQuantity() + quantity > this.townhall.getTownhall().getResourceLimit()) {
+      this.Wood.quantity += (this.townhall.getTownhall().getResourceLimit() - this.currentQuantity());
+    }
     this.Wood.quantity += quantity;
   }
   spend(quantity) {
