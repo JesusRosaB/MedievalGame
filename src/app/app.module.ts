@@ -27,6 +27,7 @@ import {QuarterService} from './quarter/quarter.service';
 import {ArmyService} from './quarter/army.service';
 import {ListaTrabajos} from './quarter/listaTrabajos';
 import {TownhallService} from './townhall/townhall.service';
+import {LevelUpBuildingService} from './buildings/levelUpBuilding.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {TownhallService} from './townhall/townhall.service';
     QuarterService,
     ArmyService,
     ListaTrabajos,
-    TownhallService
+    TownhallService,
+    LevelUpBuildingService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

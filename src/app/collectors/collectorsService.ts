@@ -5,6 +5,7 @@ import {Collector} from '../buildings/Collector';
 import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
 import {TownhallService} from '../townhall/townhall.service';
+import {LevelUpBuildingService} from '../buildings/levelUpBuilding.service';
 /**
  * Created by jose on 16/12/17.
  */
@@ -13,7 +14,7 @@ import {TownhallService} from '../townhall/townhall.service';
 export class CollectorsService {
   private collectors: Collector[] = [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService,
-  private townhall: TownhallService, private timer: TimerService) {
+  private levelup: LevelUpBuildingService, private timer: TimerService) {
     this.collectors.push(
       new Collector(1, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], 'woodCutterHouse', 1, 1),
       new Collector(1, [1], [1], 'butcherHouse', 1, 1),
@@ -27,6 +28,6 @@ export class CollectorsService {
     return this.collectors;
   }
   levelUpCollector(collector: Collector) {
-    this.townhall.buildingLevelUp(collector);
+    this.levelup.levelUp(collector);
   }
 }

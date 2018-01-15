@@ -1,6 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {TownhallService} from './townhall.service';
 import {Townhall} from '../buildings/townhall';
+import {LevelUpBuildingService} from '../buildings/levelUpBuilding.service';
 
 @Component({
   selector: 'app-townhall',
@@ -9,12 +10,12 @@ import {Townhall} from '../buildings/townhall';
 })
 export class TownhallComponent implements OnInit, DoCheck {
   ayuntamiento: Townhall;
-  constructor(private townhall: TownhallService) {}
+  constructor(private townhall: TownhallService, private levelup: LevelUpBuildingService) {}
   ngOnInit() {
     this.ayuntamiento = this.townhall.getTownhall();
   }
   levelUp() {
-    this.townhall.buildingLevelUp(this.ayuntamiento);
+    this.levelup.levelUp(this.ayuntamiento);
   }
   ngDoCheck() {
     if (this.ayuntamiento !== this.townhall.getTownhall()) {
