@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Market } from '../market';
+import { Market } from '../buildings/market';
 import { MarketService } from "./market.service";
 
 @Component({

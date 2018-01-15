@@ -1,17 +1,17 @@
 import { Building } from './building';
-import { Resources } from './resources/resources';
+import { Resources } from '../resources/resources';
 
 export class Market extends Building{
 
-	private basePurchasePrices: number[];
+	  private basePurchasePrices: number[];
     private baseSalePrices: number[];
     private levelGrowth: number;
     private purchaseMod: number[];
     private saleMod: number[];
 
-    constructor(level: number, upgradeCost: number/*[]*/, basePurchasePrices: number[],
+    constructor(level: number, upgradeCostWood: number[], upgradeCostGold: number[], basePurchasePrices: number[],
       baseSalePrices: number[], levelGrowth: number) {
-        super(level, upgradeCost, 'market');
+        super(level, upgradeCostWood, upgradeCostGold, 'market');
         this.basePurchasePrices = basePurchasePrices;
         this.baseSalePrices = baseSalePrices;
         this.levelGrowth = levelGrowth;

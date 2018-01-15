@@ -1,3 +1,20 @@
-<p>
-  AYUNTAMIENTO!
-</p>
+
+<div class="container">
+  <ul>
+    <li *ngFor="let building of edificios">
+      <div class="row">
+        <div class="col-sm">
+          <h3>Name: {{building.getName()}}</h3>
+        </div>
+        <div class="col-sm">
+          <h5>Nivel: {{building.getLevel()}}</h5>
+          <h5>Coste de madera: {{building.levelCostWood()}}</h5>
+          <h5>Coste de oro: {{building.levelCostGold()}}</h5>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary" (click)="levelUp(building)">Subir de nivel</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

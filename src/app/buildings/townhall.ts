@@ -5,15 +5,14 @@ export class Townhall extends Building {
     private baseUnitLimit: number;
     private levelResGrowth: number;
     private levelUnitGrowth: number;
-
-    constructor(level: number, upgradeCost: number/*[]*/, name: string, baseResourceLimit: number, baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
-        super(level, upgradeCost, name);
+    constructor(level: number, upgradeCostWood: number[], upgradeCostGold: number[], name: string, baseResourceLimit: number,
+                baseUnitLimit: number, levelResGrowth: number, levelUnitGrowth: number) {
+        super(level, upgradeCostWood, upgradeCostGold, name);
         this.baseResourceLimit = baseResourceLimit;
         this.baseUnitLimit = baseUnitLimit;
         this.levelResGrowth = levelResGrowth;
         this.levelUnitGrowth = levelUnitGrowth;
     }
-
     getResourceLimit(): number {
         return this.baseResourceLimit + this.levelResGrowth * this.level;
     }
@@ -21,5 +20,4 @@ export class Townhall extends Building {
     getUnitLimit(): number {
         return this.baseUnitLimit + this.levelUnitGrowth * this.level;
     }
-
 }

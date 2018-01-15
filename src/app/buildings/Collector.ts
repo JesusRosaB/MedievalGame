@@ -1,4 +1,4 @@
-import { Building } from '../building';
+import { Building } from './building';
 
 export class Collector extends Building {
     // private resource: Resources;
@@ -6,8 +6,8 @@ export class Collector extends Building {
     private levelGrowth: number;
     private mod: number;
 
-    constructor(level: number, upgradeCost: number/*[]*/, name: string, /*resource: Resources,*/ baseYield: number, levelGrowth: number) {
-        super(level, upgradeCost, /*'collector of ' + resource.getName()*/ name);
+    constructor(level: number, upgradeCostWood: number[], upgradeCostGold: number[], name: string, baseYield: number, levelGrowth: number) {
+        super(level, upgradeCostWood, upgradeCostGold, name);
         this.baseYield = baseYield;
         this.levelGrowth = levelGrowth;
         this.mod = 1;

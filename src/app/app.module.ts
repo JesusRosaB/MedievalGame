@@ -26,6 +26,7 @@ import {Exception} from './exceptions/Exception';
 import {QuarterService} from './quarter/quarter.service';
 import {ArmyService} from './quarter/army.service';
 import {ListaTrabajos} from './quarter/listaTrabajos';
+import {TownhallService} from './townhall/townhall.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {ListaTrabajos} from './quarter/listaTrabajos';
     {provide: ErrorHandler, useClass: Exception},
     QuarterService,
     ArmyService,
-    ListaTrabajos
+    ListaTrabajos,
+    TownhallService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

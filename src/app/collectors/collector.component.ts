@@ -2,9 +2,8 @@
  * Created by jose on 16/12/17.
  */
 import {Component, OnInit} from '@angular/core';
-import {WoodService} from '../resources/WoodService';
-import {Collector} from './Collector';
-import {CollectorsService} from './collectorsService';
+import {Collector} from '../buildings/Collector';
+import {TownhallService} from '../townhall/townhall.service';
 
 @Component({
   selector: 'app-collectors',
@@ -13,20 +12,9 @@ import {CollectorsService} from './collectorsService';
 })
 
 export class CollectorsComponent implements OnInit {
-  collectors: Collector[];
-  constructor(private collectorsService: CollectorsService, private Wood: WoodService) {
-    console.log('Llego componentes recolectores');
-  }
+  collectors: Collector[] = [];
+  constructor(private townhall: TownhallService) {}
   ngOnInit() {
-    this.collectors = this.collectorsService.getCollectors();
-  }
-  levelUp(collector) {
-    /*if (collector.levelCost() <= this.Wood.currentQuantity()) {
-      this.Wood.spend(collector.levelCost());
-    }
-    else {
-      console.log('No se puede realizar la transacción');
-    }*/
-    this.collectorsService.levelUp(collector);
+    this.collectors = this.townhall.getCollectors();
   }
 }

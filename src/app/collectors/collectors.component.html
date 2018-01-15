@@ -6,10 +6,7 @@
           <h3>Name: {{collector.getName()}}</h3>
         </div>
         <div class="col-sm">
-
-        </div>
-        <div class="col-sm">
-          <button type="button" class="btn btn-primary" (click)="levelUp(collector)">Subir de nivel</button>
+          <h5>Produccion: {{collector.yieldValue()}} por segundo.</h5>
         </div>
       </div>
     </li>
