@@ -36,7 +36,7 @@ export class Market extends Building{
     }
 
     getPurchasePrices(): number[] {
-      let truePrices: number[] = this.baseSalePrices;
+      let truePrices: number[] = this.basePurchasePrices;
       for (let i: number = 0; i < truePrices.length; i++) {
         truePrices[i] *= this.saleMod[i];
       }

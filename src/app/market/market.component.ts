@@ -26,11 +26,11 @@ export class MarketComponent implements OnInit, DoCheck {
     if (this.purchasePrices[1] !== this.marketService.getResourcePurchasePrice(1)) {
       this.purchasePrices[1] = this.marketService.getResourcePurchasePrice(1);
     }
-    if (this.purchasePrices[0] !== this.marketService.getResourceSalePrice(0)) {
-      this.purchasePrices[0] = this.marketService.getResourceSalePrice(0);
+    if (this.salePrices[0] !== this.marketService.getResourceSalePrice(0)) {
+      this.salePrices[0] = this.marketService.getResourceSalePrice(0);
     }
-    if (this.purchasePrices[1] !== this.marketService.getResourceSalePrice(1)) {
-      this.purchasePrices[1] = this.marketService.getResourceSalePrice(1);
+    if (this.salePrices[1] !== this.marketService.getResourceSalePrice(1)) {
+      this.salePrices[1] = this.marketService.getResourceSalePrice(1);
     }
   }
 

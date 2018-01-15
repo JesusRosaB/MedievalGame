@@ -49,7 +49,7 @@ export class MarketService {
   }
 
   sellMeat(quantity: number): void {
-    let price: number = this.market.getSalePrices()[1];
+    let price: number = this.market.getSalePrices()[1] * quantity;
     try {
       this.meat.spend(quantity);
     } catch (e) { throw new Error('Carne insuficiente.'); }
