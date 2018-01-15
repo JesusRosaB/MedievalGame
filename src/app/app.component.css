@@ -3,9 +3,13 @@ div.inline {
   margin-right: 100px;
 }
 
+button a {
+  color: black;
+}
+
 .routing {
   background-image: url("../cesped.jpg");
-  width: 1400px; height: 400px;
+  width: 1400px; height: 1750px;
 }
 
 div.fixed {

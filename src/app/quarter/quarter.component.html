@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" class="inline">
   <ul>
     <li *ngFor="let job of trabajos">
       <div class="row">
@@ -12,12 +12,10 @@
           <h5>GoldCost: {{job.getGoldCost()}}</h5>
         </div>
         <div class="col-sm">
-          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <button type="button" class="btn btn-primary" (click)="comprarTropa(1, job.getId())">1</button>
-            <button type="button" class="btn btn-success" (click)="comprarTropa(5, job.getId())">5</button>
-            <button type="button" class="btn btn-warning" (click)="comprarTropa(25, job.getId())">25</button>
-            <button type="button" class="btn btn-info" (click)="comprarTropa(100, job.getId())">100</button>
-          </div>
+          <button type="button" class="btn btn-primary" (click)="comprarTropa(1, job.getId())">1</button>
+          <button type="button" class="btn btn-success" (click)="comprarTropa(5, job.getId())">5</button>
+          <button type="button" class="btn btn-warning" (click)="comprarTropa(25, job.getId())">25</button>
+          <button type="button" class="btn btn-info" (click)="comprarTropa(100, job.getId())">100</button>
         </div>
       </div>
     </li>
