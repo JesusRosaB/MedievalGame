@@ -27,6 +27,9 @@ export class GoldService {
       this.Gold.quantity -= quantity;
     }
   }
+  resource(): Resources {
+    return this.Gold;
+  }
   loose(quantity) {
     if (this.currentQuantity() < quantity) {
       this.Gold.quantity = 0;

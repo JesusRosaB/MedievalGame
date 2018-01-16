@@ -1,4 +1,4 @@
-div.inline { 
+﻿div.inline { 
   float:left; 
   margin-right: 100px;
 }
@@ -78,6 +78,13 @@ div.fixed {
   background-image: url(../fotos/armeria.png);
   position: absolute;
     top: 120px; 
+    left: 1250px;
+}
+
+#misiones {
+  background-image: url(../fotos/misiones.jpg);
+  position: absolute;
+    top: 470px; 
     left: 1250px;
 }
 

@@ -66,7 +66,7 @@ export class Troop extends ArmyElement{
     private id: number;
     private job: Job;
     private health: number;
-
+    
     constructor(job: Job) {
         super();
         this.job = job;
@@ -78,6 +78,15 @@ export class Troop extends ArmyElement{
     getJobId(): number {
         return this.job.getId();
     }
+
+    takeDamage(damage :number) {
+      this.health -= damage;
+    }
+
+    isAlive(): boolean {
+      return Boolean(this.health > 0);
+    }
+
     getJobName(): string {
         return this.job.getJobName();
     }

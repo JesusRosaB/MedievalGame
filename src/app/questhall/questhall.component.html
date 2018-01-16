@@ -1,0 +1,26 @@
+
+<div class="container" class="inline">
+  <ul>
+    <li *ngFor="let quest of quests">
+      <div class="row">
+        <div class="col-sm">
+          <h3>Nombre: {{quest.getName()}}</h3>
+        </div>
+        <div class="col-sm">
+          <h5>Descripción: {{quest.getDescription()}}</h5>
+          <h5>Poder total del enemigo: {{quest.getEnemyPower()}}</h5>
+          <h5>Vida total del enemigo: {{quest.getEnemyHealth()}}</h5>
+          <h5>Meat Reward: {{quest.getReward(0)}}</h5>
+          <h5>Wood Reward: {{quest.getReward(1)}}</h5>
+          <h5>Gold Reward: {{quest.getReward(2)}}</h5>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary" (click)="takeQuest(quest.getId())">Aceptar misión</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+

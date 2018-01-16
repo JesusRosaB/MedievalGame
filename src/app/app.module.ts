@@ -27,7 +27,9 @@ import {QuarterService} from './quarter/quarter.service';
 import {ArmyService} from './quarter/army.service';
 import {ListaTrabajos} from './quarter/listaTrabajos';
 import {TownhallService} from './townhall/townhall.service';
-import {LevelUpBuildingService} from './buildings/levelUpBuilding.service';
+import { LevelUpBuildingService } from './buildings/levelUpBuilding.service';
+import { QuestHallComponent } from './questhall/questhall.component';
+import { QuestHallService } from './questhall/questhall.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import {LevelUpBuildingService} from './buildings/levelUpBuilding.service';
     ArmoryComponent,
     TownhallComponent,
     CollectorsComponent,
-    MessagesComponent
+    MessagesComponent,
+    QuestHallComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import {LevelUpBuildingService} from './buildings/levelUpBuilding.service';
     ArmyService,
     ListaTrabajos,
     TownhallService,
-    LevelUpBuildingService
+    LevelUpBuildingService,
+    QuestHallService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
