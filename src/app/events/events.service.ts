@@ -16,7 +16,7 @@ export class EventsService {
   lanzarEvento() {
     const resultado = Math.random() * 10;
     if (resultado <= 10) {
-      if (resultado < 2) {
+      if (resultado < 9) {
         this.event = new EventoRecursos('Buena obtencion de recursos', Math.floor(Math.random() * 900 + 100));
       }
       else {
