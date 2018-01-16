@@ -27,6 +27,10 @@ export class MeatService {
     }
   }
 
+  resource(): Resources {
+    return this.Meat;
+  }
+
   loose(quantity) {
     if (this.currentQuantity() < quantity) {
       this.Meat.quantity = 0;

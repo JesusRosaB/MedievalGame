@@ -7,6 +7,7 @@ import { ArmoryComponent } from './armory/armory.component';
 import { TownhallComponent } from './townhall/townhall.component';
 import { CollectorsComponent } from './collectors/collector.component';
 import { MessagesComponent } from './messages/messages.component';
+import { QuestHallComponent } from './questhall/questhall.component';
 
 const APP_ROUTES: Routes = [
   { path: 'mensajes', component: MessagesComponent },
@@ -17,6 +18,7 @@ const APP_ROUTES: Routes = [
   { path: 'armeria', component: ArmoryComponent },
   { path: 'ayuntamiento', component: TownhallComponent },
   { path: 'recolectores', component: CollectorsComponent },
+  { path: 'misiones', component: QuestHallComponent },
   { path: '**', pathMatch: 'full', redirectTo: ''} // Redirige a la pagina principal si encuentra algun error o pagina no encontrada
 ];
 

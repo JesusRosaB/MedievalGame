@@ -1,5 +1,8 @@
 
 export abstract class ArmyElement {
-  getPower(): any {}
-  setBusy() {}
+  getPower(): any { }
+  getCurrentHealth(): any { }
+  takeDamage(damage: number): void { }
+  isAlive(): any { }
+  //setBusy() { }
 }

@@ -23,6 +23,11 @@ export class WoodService {
       this.Wood.quantity -= quantity;
     }
   }
+
+  resource(): Resources {
+    return this.Wood;
+  }
+
   loose(quantity) {
     if (this.Wood.quantity < quantity) {
       this.Wood.quantity = 0;
