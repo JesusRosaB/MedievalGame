@@ -13,7 +13,6 @@ export class ArmoryService {
 }
 
   upgradeJob(id: number): void {
-    // Comentado hasta que implemente la mejora ed
     if (this.listaTrabajos.trabajos[id].getLevel() >= this.armory.getLevel()) {
       throw new Error("Nivel de mejora no puede superar el nivel de la armería.")
     }
