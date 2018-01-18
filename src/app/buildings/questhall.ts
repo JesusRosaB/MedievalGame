@@ -3,7 +3,7 @@ import { Quest } from '../questhall/quest';
 
 export class QuestHall extends Building {
   private quests: Quest[];
-  private mod: number[]
+  private mod: number[];
 
   constructor(level: number, upgradeCostWood: number[], upgradeCostGold: number[], quests: Quest[]) {
     super(level, upgradeCostWood, upgradeCostGold, 'quest hall');

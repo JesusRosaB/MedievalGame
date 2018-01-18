@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArmoryService } from './armory.service';
 import { Job } from '../quarter/trooptypeobject';
 import { ListaTrabajos } from '../quarter/listaTrabajos';
+import { Armory } from '../buildings/armory';
 
 @Component({
   selector: 'app-armory',
@@ -11,8 +12,11 @@ import { ListaTrabajos } from '../quarter/listaTrabajos';
 })
 export class ArmoryComponent implements OnInit {
   trabajos: Job[];
+  armory: Armory;
 
-  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService) { }
+  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService) {
+    this.armory = armoryService.getArmory();
+  }
 
   ngOnInit() {
     this.trabajos = this.lista.getJobs();
@@ -20,5 +24,9 @@ export class ArmoryComponent implements OnInit {
 
   upgradeJob(job :Job) {
     this.armoryService.upgradeJob(job.getId());
+  }
+
+  levelUp() {
+    this.armoryService.levelUp(this.armory);
   }
 }

@@ -1,20 +1,27 @@
-
 <div class="container" >
-    <dl *ngFor="let job of trabajos">
-      <div class="row" class="inline">
-        <div class="col-sm">
-          <h3>Name: {{job.getJobName()}}</h3>
-        </div>
-        <div class="col-sm">
-          <h5>Level: {{job.getLevel()}}</h5>
-          <h5>Power: {{job.getPower()}}</h5>
-          <h5>UpgradeCost: {{job.getUpgradeCost()}}</h5>
-        </div>
-        <div class="col-sm">
-          <button type="button" class="btn btn-primary" (click)="upgradeJob(job)">Mejorar</button>
-        </div>
-      </div>
-    </dl>
+    <div class="col-sm" id="armeria">
+      <h3>Armería</h3>
+      <h5>Nivel: {{armory.getLevel()}}</h5>
+      <h5>Coste de Mejora (Madera): {{armory.levelCostWood()}}</h5>
+      <h5>Coste de Mejora (Oro): {{armory.levelCostGold()}}</h5>
+      <button type="button" class="btn btn-primary" (click)="levelUp(armory)">Mejorar Armería</button>
+    </div>
+    <div class="col-sm">
+        <dl *ngFor="let job of trabajos">
+          <div class="row" class="inline">
+            <div class="col-sm">
+              <h3>Name: {{job.getJobName()}}</h3>
+            </div>
+            <div class="col-sm">
+              <h5>Level: {{job.getLevel()}}</h5>
+              <h5>Power: {{job.getPower()}}</h5>
+              <h5>UpgradeCost: {{job.getUpgradeCost()}}</h5>
+            </div>
+            <div class="col-sm">
+              <button type="button" class="btn btn-primary" (click)="upgradeJob(job)">Mejorar</button>
+            </div>
+          </div>
+        </dl>
 </div>
 
 
