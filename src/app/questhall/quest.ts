@@ -14,6 +14,7 @@ export class Quest {
     private reward: number[];
     private name: string;
     private description: string;
+    completed: boolean;
 
     constructor(id: number, enemyGroup: ArmyElement, reward: number[], name: string, description: string) {
       this.id = id;
@@ -21,6 +22,7 @@ export class Quest {
       this.reward = reward;
       this.name = name;
       this.description = description;
+      this.completed = false;
     }
 
     public getId() {

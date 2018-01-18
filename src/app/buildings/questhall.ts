@@ -19,7 +19,7 @@ export class QuestHall extends Building {
     return this.quests;
   }
 
-  removeQuest(id: number): void {
-    this.quests[id] = null;
+  completeQuest(id: number): void {
+    this.quests[id].completed = true;;
   }
 }

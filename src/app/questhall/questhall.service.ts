@@ -13,12 +13,16 @@ export class QuestHallService {
 
   constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private army: ArmyService) {
     this.questHall = new QuestHall(1, [1], [1], [new Quest(0, new Troop(new Job(0, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
-      [100, 100, 100], 'prueba', 'prueba'), new Quest(0, new Troop(new Job(0, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
+      [100, 100, 100], 'prueba', 'prueba'), new Quest(0, new Troop(new Job(1, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
         [100, 100, 100], 'prueba2', 'prueba2')]);
   }
 
   takeQuest(id: number) {
     let quest = this.questHall.getQuest(id);
+    if (quest.completed) {
+      //Tiene que haber una forma mejor de hacer esto.
+      throw new Error("Misión ya completada.");
+    }
     console.log(this.army.isAlive());
     console.log(quest.getEnemy().isAlive());
     let result = quest.attempt(this.army);
@@ -28,7 +32,7 @@ export class QuestHallService {
       this.wood.increase(quest.getReward(this.wood.resource().getId() - 1));
       this.gold.increase(quest.getReward(this.gold.resource().getId() - 1));
       console.log("Misión completada");
-      this.questHall.removeQuest(id);
+      this.questHall.completeQuest(id);
     }
   }
 

@@ -1,5 +1,5 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
-import {MessagesService} from './messages.service';
+import {MessagesService} from '../messages/messages.service';
 
 @Component({
   selector: 'app-exception',
