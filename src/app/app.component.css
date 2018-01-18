@@ -53,13 +53,6 @@ div.fixed {
     left: 275px;
 }
 
-#recursos {
-  background-image: url(../fotos/recursos.png);
-  position: absolute;
-    top: 120px;
-    left: 450px;
-}
-
 #mercado {
   background-image: url(../fotos/mercado.png);
   position: absolute;
@@ -83,9 +76,9 @@ div.fixed {
 
 #misiones {
   background-image: url(../fotos/misiones.jpg);
-  position: absolute;
-    top: 470px; 
-    left: 1250px;
+ position: absolute;
+    top: 120px;
+    left: 450px;
 }
 
 img.pequeña{

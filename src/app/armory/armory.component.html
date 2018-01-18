@@ -1,8 +1,7 @@
 
-<div class="container" class="inline">
-  <ul>
-    <li *ngFor="let job of trabajos">
-      <div class="row">
+<div class="container" >
+    <dl *ngFor="let job of trabajos">
+      <div class="row" class="inline">
         <div class="col-sm">
           <h3>Name: {{job.getJobName()}}</h3>
         </div>
@@ -15,8 +14,7 @@
           <button type="button" class="btn btn-primary" (click)="upgradeJob(job)">Mejorar</button>
         </div>
       </div>
-    </li>
-  </ul>
+    </dl>
 </div>
 
 

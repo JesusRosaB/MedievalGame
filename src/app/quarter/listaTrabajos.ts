@@ -8,7 +8,6 @@ import {GoldService} from '../resources/GoldService';
 export class ListaTrabajos {
   trabajos: Job[] = [];
   constructor(private army: ArmyService, private meat: MeatService, private gold: GoldService) {
-    console.log('Constructor de listaTrabajos');
     this.trabajos.push(
       new Job(0, 'Soldado', 1, [1, 2, 3, 4, 5], 10, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140]),
       new Job(1, 'Arquero', 1, [1, 2, 3, 4, 5], 10, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140]),

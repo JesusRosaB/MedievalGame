@@ -20,7 +20,7 @@ export class MeatService {
   }
   spend(quantity) {
     if (this.Meat.quantity < quantity) {
-      throw new Error('madera');
+      throw new Error('Carne');
     }
     else{
       this.Meat.quantity -= quantity;

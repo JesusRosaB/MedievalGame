@@ -21,7 +21,7 @@ export class GoldService {
   }
   spend(quantity) {
     if (this.Gold.quantity < quantity) {
-      throw new Error('madera');
+      throw new Error('Oro');
     }
     else{
       this.Gold.quantity -= quantity;

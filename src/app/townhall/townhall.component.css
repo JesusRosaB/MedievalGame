@@ -1,3 +1,8 @@
 .inline {
 	color:black;
-}
+	font-weight: bold;
+    background-color: #efb73e;
+    border: 2px solid #e95420;
+    width: 280px;
+    height: 250px;
+}	

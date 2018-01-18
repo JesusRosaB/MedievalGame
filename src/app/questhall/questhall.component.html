@@ -1,8 +1,7 @@
 
-<div class="container" class="inline">
-  <ul>
-    <li *ngFor="let quest of quests">
-      <div class="row">
+<div class="container" >
+    <dl *ngFor="let quest of quests">
+      <div class="row" class="inline">
         <div class="col-sm">
           <h3>Nombre: {{quest.getName()}}</h3>
         </div>
@@ -18,8 +17,7 @@
           <button type="button" class="btn btn-primary" (click)="takeQuest(quest.getId())">Aceptar misión</button>
         </div>
       </div>
-    </li>
-  </ul>
+    </dl>
 </div>
 
 
