@@ -13,7 +13,7 @@ export class QuestHallService {
 
   constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private army: ArmyService) {
     this.questHall = new QuestHall(1, [1], [1], [new Quest(0, new Troop(new Job(0, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
-      [100, 100, 100], 'prueba', 'prueba'), new Quest(0, new Troop(new Job(1, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
+      [100, 100, 100], 'prueba', 'prueba'), new Quest(1, new Troop(new Job(0, 'Jabalí', 1, [33], 300, [4, 7, 9, 10, 10], [4, 7, 9, 10, 10], [100, 110, 120, 130, 140])),
         [100, 100, 100], 'prueba2', 'prueba2')]);
   }
 
