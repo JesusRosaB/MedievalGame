@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 // ROUTING
 import { APP_ROUTING } from './app-routing.module';
@@ -30,6 +30,8 @@ import {TownhallService} from './townhall/townhall.service';
 import { LevelUpBuildingService } from './buildings/levelUpBuilding.service';
 import { QuestHallComponent } from './questhall/questhall.component';
 import { QuestHallService } from './questhall/questhall.service';
+import {DatabaseService} from './baseDeDatos/database.service';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { QuestHallService } from './questhall/questhall.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     APP_ROUTING
   ],
@@ -65,7 +67,8 @@ import { QuestHallService } from './questhall/questhall.service';
     ListaTrabajos,
     TownhallService,
     LevelUpBuildingService,
-    QuestHallService
+    QuestHallService,
+    DatabaseService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

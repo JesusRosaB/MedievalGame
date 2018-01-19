@@ -4,8 +4,8 @@ import {TimerService} from '../timer/timer.service';
 import {Collector} from '../buildings/Collector';
 import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
-import {TownhallService} from '../townhall/townhall.service';
 import {LevelUpBuildingService} from '../buildings/levelUpBuilding.service';
+import {DatabaseService} from '../baseDeDatos/database.service';
 /**
  * Created by jose on 16/12/17.
  */
@@ -14,12 +14,13 @@ import {LevelUpBuildingService} from '../buildings/levelUpBuilding.service';
 export class CollectorsService {
   private collectors: Collector[] = [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService,
-  private levelup: LevelUpBuildingService, private timer: TimerService) {
-    this.collectors.push(
+  private levelup: LevelUpBuildingService, private timer: TimerService, private database: DatabaseService) {
+    /*this.collectors.push(
       new Collector(1, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], 'woodCutterHouse', 1, 1),
       new Collector(1, [1], [1], 'butcherHouse', 1, 1),
       new Collector(1, [1], [1], 'goldMine', 1, 1)
-    );
+    );*/
+    this.database.getCollectors().subscribe((collectors) => this.collectors = collectors);
     this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.collectors[0].yieldValue()));
     this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.collectors[1].yieldValue()));
     this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.collectors[2].yieldValue()));
