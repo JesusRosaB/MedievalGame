@@ -1,8 +1,10 @@
 #eventos{
-  position: absolute;
-  left: -250px;
-  top: -200px;
-  background-color: grey;
-  width: 700px; height: 450px;
+  position: relative;
+  color: black;
+  font-weight: bold;
+  left: -25%;
+  background-color: #D3E5E5;
+  border: 2px solid #e95420;
+  width: auto; height: auto;
   text-align: center
 }

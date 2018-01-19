@@ -1,7 +1,6 @@
-<div class="container" class="inline">
-  <ul>
-    <li *ngFor="let collector of collectors">
-      <div class="row">
+<div class="container">
+    <dl *ngFor="let collector of collectors">
+      <div class="row" class="inline">
         <div class="col-sm">
           <h3>Name: {{collector.getName()}}</h3>
         </div>
@@ -14,7 +13,6 @@
           <button type="button" class="btn btn-primary" (click)="levelUp(collector)">Subir de nivel</button>
         </div>
       </div>
-    </li>
-  </ul>
+    </dl>
 </div>
 

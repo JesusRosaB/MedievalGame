@@ -1,0 +1,10 @@
+.inline {
+	position: relative;
+	color: black;
+	font-weight: bold;
+	background-color: #D3E5E5;
+    border: 2px solid #e95420;
+    width: 260px;
+    height: 280px;
+    left: -30%;
+}

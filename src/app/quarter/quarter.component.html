@@ -1,7 +1,6 @@
-<div class="container" class="inline">
-  <ul>
-    <li *ngFor="let job of trabajos">
-      <div class="row">
+<div class="container">
+  <dl *ngFor="let job of trabajos">
+      <div class="row" class="inline">
         <div class="col-sm">
           <h3>Name: {{job.getJobName()}}</h3>
         </div>
@@ -17,9 +16,8 @@
           <button type="button" class="btn btn-warning" (click)="comprarTropa(25, job.getId())">25</button>
           <button type="button" class="btn btn-info" (click)="comprarTropa(100, job.getId())">100</button>
         </div>
-      </div>
-    </li>
-  </ul>
+      </div>  
+  </dl>
 </div>
 
 

@@ -1,4 +1,10 @@
-div.inline { 
-  	color:black;
-  	font-weight: bold; 
+.inline {
+	position: relative;
+	color: black;
+	font-weight: bold;
+	background-color: #D3E5E5;
+    border: 2px solid #e95420;
+    width: 300px;
+    height: 210px;
+    left: -30%;
 }

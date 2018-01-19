@@ -81,6 +81,9 @@ export class Troop extends ArmyElement{
 
     takeDamage(damage :number) {
       this.health -= damage;
+      if (this.health < 0) {
+        this.health = 0;
+      }
     }
 
     isAlive(): boolean {

@@ -17,7 +17,7 @@ export class WoodService {
   }
   spend(quantity) {
     if (this.Wood.quantity < quantity) {
-      throw new Error('madera');
+      throw new Error('Madera');
     }
     else{
       this.Wood.quantity -= quantity;

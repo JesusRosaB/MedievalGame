@@ -1,0 +1,22 @@
+.inline {
+	position: relative;
+	color: black;
+	font-weight: bold;
+	background-color: #D3E5E5;
+    border: 2px solid #e95420;
+    width: 260px;
+    height: 210px;
+    left: -30%;
+}
+
+#armeria {
+	position: relative;
+	color: black;
+	font-weight: bold;
+	background-color: #efb73e;
+    border: 2px solid #e95420;
+    width: 260px;
+    height: 210px;
+    left: -30%;
+    margin-bottom: 20px;
+}
