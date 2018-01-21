@@ -17,14 +17,14 @@ export class Market extends Building{
         this.levelGrowth = levelGrowth;
         this.purchaseMod = [1, 1];
         this.saleMod = [1, 1];
-        /**this.purchaseMod = basePurchasePrices;
+        this.purchaseMod = basePurchasePrices;
         this.saleMod = baseSalePrices;
         for (let i of this.purchaseMod) {
           i = 1;
         }
         for (let i of this.saleMod) {
           i = 1;
-        }*/
+        }
     }
 
     purchaseValue(amount: number, res: Resources): number {

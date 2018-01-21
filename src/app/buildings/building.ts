@@ -1,8 +1,8 @@
 export abstract class Building {
-    public level: number;
-    protected upgradeCostWood: number[];
-    protected upgradeCostGold: number[];
-    public name: string;
+    level: number;
+    upgradeCostWood: number[];
+    upgradeCostGold: number[];
+    name: string;
 
     constructor(level: number, upgradeCostWood: number[], upgradeCostGold: number[], name: string) {
         this.level = level;

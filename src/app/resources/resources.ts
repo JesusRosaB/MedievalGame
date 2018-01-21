@@ -8,17 +8,4 @@ export class Resources {
     this.name = name;
     this.quantity = quantity;
   }
-
-  getId(): number {
-        return this.id;
-  }
-
-  getName(): string {
-        return this.name;
-  }
-
-  getQuantity(): number {
-    return this.quantity;
-  }
-
 }

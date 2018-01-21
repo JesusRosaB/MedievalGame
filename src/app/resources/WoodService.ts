@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Resources} from './resources';
 import {TownhallService} from '../townhall/townhall.service';
+import {DatabaseService} from '../baseDeDatos/database.service';
 
 @Injectable()
 export class WoodService {
-  private Wood: Resources = new Resources(1, 'Madera', 500);
-  constructor(private townhall: TownhallService) {}
+  private Wood: Resources;
+  constructor(private townhall: TownhallService, private databaseResource: DatabaseService) {
+    this.databaseResource.getWood();
+  }
   currentQuantity() {
     return this.Wood.quantity;
   }
