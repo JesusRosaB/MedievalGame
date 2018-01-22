@@ -11,6 +11,7 @@ import {Armory} from '../buildings/armory';
 @Injectable()
 export class DatabaseService {
   urlAPI = 'https://5a60754811654a0012d3012f.mockapi.io/';
+  urlAPIupdate = 'https://5a65b167acd74f00128c607d.mockapi.io/';
   collectors: Collector[] = [];
   constructor(private http: HttpClient) {}
   getResource(id): Observable<Resources> {
@@ -20,6 +21,15 @@ export class DatabaseService {
         return new Resources(data.id, data.name, data.quantity);
       });
   }
+
+  updateResource(resource: Resources): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Resource/' + resource.id;
+    return this.http.put<string>(url, { resource })
+      .map(() => {
+        return "El recurso ha sido actualizado correctamente";
+      });
+  }
+
   getCollectors(): Observable<Collector[]> {
     const url = `${ this.urlAPI }` + 'Collector';
     return this.http.get<Collector[]>(url)
