@@ -28,9 +28,9 @@ export class QuestHallService {
     let result = quest.attempt(this.army);
     console.log(result.description);
     if (result.won) {
-      this.meat.increase(quest.getReward(this.meat.resource().getId() - 1));
-      this.wood.increase(quest.getReward(this.wood.resource().getId() - 1));
-      this.gold.increase(quest.getReward(this.gold.resource().getId() - 1));
+      this.meat.increase(quest.getReward(this.meat.resource().id - 1));
+      this.wood.increase(quest.getReward(this.wood.resource().id - 1));
+      this.gold.increase(quest.getReward(this.gold.resource().id - 1));
       console.log("Misión completada");
       this.questHall.completeQuest(id);
     }

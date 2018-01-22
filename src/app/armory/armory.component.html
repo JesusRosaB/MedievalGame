@@ -1,9 +1,9 @@
 <div class="container" >
     <div class="col-sm" id="armeria">
       <h3>Armería</h3>
-      <h5>Nivel: {{armory.getLevel()}}</h5>
-      <h5>Coste de Mejora (Madera): {{armory.levelCostWood()}}</h5>
-      <h5>Coste de Mejora (Oro): {{armory.levelCostGold()}}</h5>
+      <h5>Nivel: {{armory.level}}</h5>
+      <h5>Coste de Mejora (Madera): {{armory.upgradeCostWood[armory.level]}}</h5>
+      <h5>Coste de Mejora (Oro): {{armory.upgradeCostGold[armory.level]}}</h5>
       <button type="button" class="btn btn-primary" (click)="levelUp(armory)">Mejorar Armería</button>
     </div>
     <div class="col-sm">

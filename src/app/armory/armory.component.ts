@@ -14,15 +14,14 @@ export class ArmoryComponent implements OnInit {
   trabajos: Job[];
   armory: Armory;
 
-  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService) {
-    this.armory = armoryService.getArmory();
-  }
+  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService) {}
 
   ngOnInit() {
+    this.armory = this.armoryService.getArmory();
     this.trabajos = this.lista.getJobs();
   }
 
-  upgradeJob(job :Job) {
+  upgradeJob(job: Job) {
     this.armoryService.upgradeJob(job.getId());
   }
 

@@ -20,4 +20,7 @@ export class CollectorsComponent implements OnInit {
   levelUp(collector) {
     this.collectorservice.levelUpCollector(collector);
   }
+  yieldValue(collector) {
+    return this.collectorservice.yieldValue(collector);
+  }
 }

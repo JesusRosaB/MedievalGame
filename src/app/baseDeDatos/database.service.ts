@@ -4,24 +4,20 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Resources} from '../resources/resources';
 import {Collector} from '../buildings/Collector';
+import {Market} from '../buildings/market';
+import {Townhall} from '../buildings/townhall';
+import {Armory} from '../buildings/armory';
 
 @Injectable()
 export class DatabaseService {
   urlAPI = 'https://5a60754811654a0012d3012f.mockapi.io/';
-  resource: Resources;
   collectors: Collector[] = [];
   constructor(private http: HttpClient) {}
-  getWood() {
-    return this.getResource(1).subscribe(() => {
-      return this.resource;
-    });
-  }
   getResource(id): Observable<Resources> {
     const url = `${ this.urlAPI }` + 'Resource/' + id;
     return this.http.get<Resources>(url)
       .map((data) => {
-        this.resource = new Resources(data.id, data.name, data.quantity);
-        return this.resource;
+        return new Resources(data.id, data.name, data.quantity);
       });
   }
   getCollectors(): Observable<Collector[]> {
@@ -31,6 +27,29 @@ export class DatabaseService {
         data.forEach((d) => this.collectors.push(
           new Collector(d.level, d.upgradeCostWood, d.upgradeCostGold, d.name, d.baseYield, d.levelGrowth)));
         return this.collectors;
+      });
+  }
+  getMarket(): Observable<Market> {
+    const url = `${ this.urlAPI }` + 'Market/1';
+    return this.http.get<Market>(url)
+      .map((data) => {
+        return new Market(data.level, data.upgradeCostWood, data.upgradeCostGold,
+          data.basePurchasePrice, data.baseSalePrices, data.levelGrowth);
+      });
+  }
+  getTownhall(): Observable<Townhall> {
+    const url = `${ this.urlAPI }` + 'Townhall/1';
+    return this.http.get<Townhall>(url)
+      .map((data) => {
+        return new Townhall(data.level, data.upgradeCostWood, data.upgradeCostGold, data.name,
+          data.baseResourceLimit, data.baseUnitLimit, data.levelResGrowth, data.levelUnitGrowth);
+      });
+  }
+  getArmory(): Observable<Armory> {
+    const url = `${ this.urlAPI }` + 'Armory/1';
+    return this.http.get<Armory>(url)
+      .map((data) => {
+        return new Armory(data.level, data.upgradeCostWood, data.upgradeCostGold);
       });
   }
 }

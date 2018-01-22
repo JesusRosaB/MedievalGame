@@ -7,14 +7,14 @@ import {DatabaseService} from '../baseDeDatos/database.service';
 export class WoodService {
   private Wood: Resources;
   constructor(private townhall: TownhallService, private databaseResource: DatabaseService) {
-    this.databaseResource.getWood();
+    this.databaseResource.getResource(1).subscribe((resource) => this.Wood = resource);
   }
   currentQuantity() {
     return this.Wood.quantity;
   }
   increase(quantity) {
-    if (this.currentQuantity() + quantity > this.townhall.getTownhall().getResourceLimit()) {
-      this.Wood.quantity += (this.townhall.getTownhall().getResourceLimit() - this.currentQuantity());
+    if (this.currentQuantity() + quantity > this.townhall.getResourceLimit()) {
+      this.Wood.quantity += (this.townhall.getResourceLimit() - this.currentQuantity());
     }
     this.Wood.quantity += quantity;
   }

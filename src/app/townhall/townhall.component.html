@@ -2,16 +2,16 @@
 <div class="container" class="inline">
   <div class="row">
     <div class="col-sm">
-      <h3>Name: {{ayuntamiento.getName()}}</h3>
+      <h3>Name: {{ayuntamiento.name}}</h3>
     </div>
     <div class="col-sm">
-      <h5>Nivel: {{ayuntamiento.getLevel()}}</h5>
-      <h5>Reservas maximas de recursos: {{ayuntamiento.getResourceLimit()}}</h5>
+      <h5>Nivel: {{ayuntamiento.level}}</h5>
+      <h5>Reservas maximas de recursos: {{getResourceLimit()}}</h5>
     </div>
     <div class="col-sm">
       <h5>Costes para subir de nivel: </h5>
-      <h5>Madera: {{ayuntamiento.levelCostWood()}}</h5>
-      <h5>Oro: {{ayuntamiento.levelCostGold()}}</h5>
+      <h5>Madera: {{ayuntamiento.upgradeCostWood[ayuntamiento.level - 1]}}</h5>
+      <h5>Oro: {{ayuntamiento.upgradeCostGold[ayuntamiento.level - 1]}}</h5>
       <button type="button" class="btn btn-primary" (click)="levelUp()">Subir de nivel</button>
     </div>
   </div>

@@ -1,12 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Townhall} from '../buildings/townhall';
+import {DatabaseService} from '../baseDeDatos/database.service';
 
 @Injectable()
 export class TownhallService {
-  townhall: Townhall = new Townhall(1, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], 'Ayuntamiento',
-    1000, 1000, 1000, 200);
-  constructor() {}
+  townhall: Townhall;
+  constructor(private databaseService: DatabaseService) {
+    this.databaseService.getTownhall().subscribe((t) => this.townhall = t);
+  }
   getTownhall(): Townhall {
     return this.townhall;
+  }
+  getResourceLimit(): number {
+    return this.townhall.baseResourceLimit + this.townhall.levelResGrowth * this.townhall.level;
+  }
+
+  getUnitLimit(): number {
+    return this.townhall.baseUnitLimit + this.townhall.levelUnitGrowth * this.townhall.level;
   }
 }

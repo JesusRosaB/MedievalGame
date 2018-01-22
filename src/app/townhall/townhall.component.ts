@@ -22,4 +22,10 @@ export class TownhallComponent implements OnInit, DoCheck {
       this.ayuntamiento = this.townhall.getTownhall();
     }
   }
+  getResourceLimit() {
+    return this.townhall.getResourceLimit();
+  }
+  getUnitLimit() {
+    return this.townhall.getUnitLimit();
+  }
 }

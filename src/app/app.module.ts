@@ -31,6 +31,8 @@ import { LevelUpBuildingService } from './buildings/levelUpBuilding.service';
 import { QuestHallComponent } from './questhall/questhall.component';
 import { QuestHallService } from './questhall/questhall.service';
 import {DatabaseService} from './baseDeDatos/database.service';
+import {MarketService} from './market/market.service';
+import {ArmoryService} from './armory/armory.service';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import {DatabaseService} from './baseDeDatos/database.service';
     TownhallService,
     LevelUpBuildingService,
     QuestHallService,
-    DatabaseService
+    DatabaseService,
+    MarketService,
+    ArmoryService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

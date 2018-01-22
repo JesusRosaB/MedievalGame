@@ -2,14 +2,14 @@
     <dl *ngFor="let collector of collectors">
       <div class="row" class="inline">
         <div class="col-sm">
-          <h3>Name: {{collector.getName()}}</h3>
+          <h3>Name: {{collector.name}}</h3>
         </div>
         <div class="col-sm">
-          <h5>Produccion: {{collector.yieldValue()}} por segundo.</h5>
+          <h5>Produccion: {{this.yieldValue(collector)}} por segundo.</h5>
         </div>
         <div class="col-sm">
-          <h5>Coste de madera del siguiente nivel: {{collector.levelCostWood()}}</h5>
-          <h5>Coste de oro del siguiente nivel: {{collector.levelCostGold()}}</h5>
+          <h5>Coste de madera del siguiente nivel: {{collector.upgradeCostWood[collector.level - 1]}}</h5>
+          <h5>Coste de oro del siguiente nivel: {{collector.upgradeCostGold[collector.level - 1]}}</h5>
           <button type="button" class="btn btn-primary" (click)="levelUp(collector)">Subir de nivel</button>
         </div>
       </div>

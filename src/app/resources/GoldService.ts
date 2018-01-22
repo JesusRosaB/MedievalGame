@@ -3,19 +3,21 @@
  */
 import {Injectable, OnInit} from '@angular/core';
 import {Resources} from './resources';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {TownhallService} from '../townhall/townhall.service';
+import {DatabaseService} from '../baseDeDatos/database.service';
 
 @Injectable()
 export class GoldService {
-  Gold: Resources = new Resources(3, 'Oro', 500);
-  constructor(private townhall: TownhallService) {}
+  Gold: Resources;
+  constructor(private townhall: TownhallService, private databaseResource: DatabaseService) {
+    this.databaseResource.getResource(3).subscribe((resource) => this.Gold = resource);
+  }
   currentQuantity() {
     return this.Gold.quantity;
   }
   increase(quantity) {
-    if (this.currentQuantity() + quantity > this.townhall.getTownhall().getResourceLimit()) {
-      this.Gold.quantity += (this.townhall.getTownhall().getResourceLimit() - this.currentQuantity());
+    if (this.currentQuantity() + quantity > this.townhall.getResourceLimit()) {
+      this.Gold.quantity += (this.townhall.getResourceLimit() - this.currentQuantity());
     }
     this.Gold.quantity += quantity;
   }

@@ -3,17 +3,18 @@ import { ListaTrabajos } from '../quarter/listaTrabajos';
 import { WoodService } from '../resources/WoodService';
 import { Armory } from '../buildings/armory';
 import { LevelUpBuildingService } from '../buildings/levelUpBuilding.service';
+import {Job} from '../job';
+import {DatabaseService} from '../baseDeDatos/database.service';
 
 @Injectable()
 export class ArmoryService {
   armory: Armory;
-
-  constructor(private listaTrabajos: ListaTrabajos, private wood: WoodService, private levelup: LevelUpBuildingService) {
-    this.armory = new Armory(1, [1, 2, 3], [1, 2, 3]);
-}
-
+  constructor(private listaTrabajos: ListaTrabajos, private wood: WoodService, private levelup: LevelUpBuildingService,
+              private databaseService: DatabaseService) {
+    this.databaseService.getArmory().subscribe((a) => this.armory = a);
+  }
   upgradeJob(id: number): void {
-    if (this.listaTrabajos.trabajos[id].getLevel() >= this.armory.getLevel()) {
+    if (this.listaTrabajos.trabajos[id].getLevel() >= this.armory.level) {
       throw new Error("Nivel de mejora no puede superar el nivel de la armería.")
     }
     let price = this.listaTrabajos.trabajos[id].getUpgradeCost();
@@ -28,8 +29,10 @@ export class ArmoryService {
   getArmory() {
     return this.armory;
   }
-
-  levelUp(armory : Armory) {
+  levelUp(armory: Armory) {
     this.levelup.levelUp(armory);
+  }
+  getUpgradeCost(job: Job): number {
+    return job.getUpgradeGost() * this.armory.mod[job.getId()];
   }
 }

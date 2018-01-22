@@ -3,18 +3,20 @@
  */
 import {Injectable} from '@angular/core';
 import {Resources} from './resources';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {TownhallService} from '../townhall/townhall.service';
+import {DatabaseService} from '../baseDeDatos/database.service';
 @Injectable()
 export class MeatService {
-  Meat: Resources = new Resources(2, 'Carne', 500);
-  constructor(private townhall: TownhallService) {}
+  Meat: Resources;
+  constructor(private townhall: TownhallService, private databaseResource: DatabaseService) {
+    this.databaseResource.getResource(2).subscribe((resource) => this.Meat = resource);
+  }
   currentQuantity() {
     return this.Meat.quantity;
   }
   increase(quantity) {
-    if (this.currentQuantity() + quantity > this.townhall.getTownhall().getResourceLimit()) {
-      this.Meat.quantity += (this.townhall.getTownhall().getResourceLimit() - this.currentQuantity());
+    if (this.currentQuantity() + quantity > this.townhall.getResourceLimit()) {
+      this.Meat.quantity += (this.townhall.getResourceLimit() - this.currentQuantity());
     }
     this.Meat.quantity += quantity;
   }
