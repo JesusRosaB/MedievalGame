@@ -3,6 +3,7 @@ import { ArmoryService } from './armory.service';
 import { Job } from '../quarter/trooptypeobject';
 import { ListaTrabajos } from '../quarter/listaTrabajos';
 import { Armory } from '../buildings/armory';
+import { DatabaseService } from '../baseDeDatos/database.service';
 
 @Component({
   selector: 'app-armory',
@@ -14,7 +15,7 @@ export class ArmoryComponent implements OnInit, DoCheck {
   trabajos: Job[];
   armory: Armory;
 
-  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService) {}
+  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService, private _databaseService: DatabaseService) {}
 
   ngOnInit() {
     this.armory = this.armoryService.getArmory();
@@ -27,6 +28,7 @@ export class ArmoryComponent implements OnInit, DoCheck {
 
   levelUp() {
     this.armoryService.levelUp(this.armory);
+    this._databaseService.updateArmory(this.armory);
   }
   ngDoCheck() {
     if (this.armory !== this.armoryService.getArmory()){

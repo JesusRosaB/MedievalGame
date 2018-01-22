@@ -92,6 +92,7 @@ export class DatabaseService {
 
   updateArmory(armory: Armory): Observable<string> {
     const url = `${ this.urlAPIupdate }` + 'Armory/1';
+    console.log(armory);
     return this.http.put<string>(url, { armory })
       .map(() => {
         return 'La armeria ha sido actualizado correctamente';
