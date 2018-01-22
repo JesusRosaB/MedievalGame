@@ -11,7 +11,11 @@ export class MarketService {
   market: Market;
 
   constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private databaseService: DatabaseService) {
-    this.databaseService.getMarket().subscribe((m) => this.market = m);
+    this.databaseService.getMarket().subscribe((m) => {
+      console.log(m);
+      this.market = m;
+      console.log(this.market);
+    });
   }
 
   getResourcePurchasePrice(resource) {

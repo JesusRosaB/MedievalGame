@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ArmoryService } from './armory.service';
 import { Job } from '../quarter/trooptypeobject';
 import { ListaTrabajos } from '../quarter/listaTrabajos';
@@ -10,7 +10,7 @@ import { Armory } from '../buildings/armory';
   styleUrls: ['./armory.component.css'],
   providers: [ ArmoryService ],
 })
-export class ArmoryComponent implements OnInit {
+export class ArmoryComponent implements OnInit, DoCheck {
   trabajos: Job[];
   armory: Armory;
 
@@ -27,5 +27,10 @@ export class ArmoryComponent implements OnInit {
 
   levelUp() {
     this.armoryService.levelUp(this.armory);
+  }
+  ngDoCheck() {
+    if (this.armory !== this.armoryService.getArmory()){
+      this.armory = this.armoryService.getArmory();
+    }
   }
 }

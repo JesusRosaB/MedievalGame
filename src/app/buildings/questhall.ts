@@ -11,7 +11,7 @@ export class QuestHall extends Building {
     this.mod = [1, 1, 1];
   }
 
-  getQuest(id : number) : Quest {
+  getQuest(id: number) : Quest {
     return this.quests[id];
   }
 

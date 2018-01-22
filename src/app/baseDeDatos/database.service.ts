@@ -26,7 +26,7 @@ export class DatabaseService {
     const url = `${ this.urlAPIupdate }` + 'Resource/' + resource.id;
     return this.http.put<string>(url, { resource })
       .map(() => {
-        return "El recurso ha sido actualizado correctamente";
+        return 'El recurso ha sido actualizado correctamente';
       });
   }
 

@@ -7,7 +7,7 @@ import {TownhallService} from '../townhall/townhall.service';
 export class LevelUpBuildingService {
   constructor(private wood: WoodService, private gold: GoldService, private townhall: TownhallService) {}
   levelUp(building) {
-    if (this.levelUpPosible(building)) {
+    if (!this.levelUpPosible(building)) {
       throw new Error('Edificio al nivel maximo');
     }
     if (building === this.townhall.getTownhall() || this.townhall.getTownhall().level > building.level) {
