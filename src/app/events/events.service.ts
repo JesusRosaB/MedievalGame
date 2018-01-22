@@ -61,7 +61,7 @@ export class EventsService {
       }
     }
     else if (e instanceof EventoEnfermedad) {
-      let dmg = e.porcentaje / 100 * this.army.getCurrentHealth();
+      let dmg = Math.floor(e.porcentaje / 100 * this.army.getCurrentHealth());
       this.army.takeDamage(dmg);
       console.log('Tu ejército recibe ' + dmg + ' puntos de daño.');
     }
