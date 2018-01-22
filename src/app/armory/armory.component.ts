@@ -28,10 +28,10 @@ export class ArmoryComponent implements OnInit, DoCheck {
 
   levelUp() {
     this.armoryService.levelUp(this.armory);
-    this._databaseService.updateArmory(this.armory);
+    this._databaseService.updateArmory(this.armory).subscribe((s) => console.log(s));
   }
   ngDoCheck() {
-    if (this.armory !== this.armoryService.getArmory()){
+    if (this.armory !== this.armoryService.getArmory()) {
       this.armory = this.armoryService.getArmory();
     }
   }
