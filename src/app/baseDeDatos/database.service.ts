@@ -35,10 +35,19 @@ export class DatabaseService {
     return this.http.get<Collector[]>(url)
       .map((data) => {
         data.forEach((d) => this.collectors.push(
-          new Collector(d.level, d.upgradeCostWood, d.upgradeCostGold, d.name, d.baseYield, d.levelGrowth)));
+          new Collector(d.level, d.upgradeCostWood, d.upgradeCostGold, d.name, d.baseYield, d.levelGrowth, d.id)));
         return this.collectors;
       });
   }
+
+  updateCollectors(collector: Collector): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Collector/' + collector.id;
+    return this.http.put<string>(url, { collector })
+      .map(() => {
+        return "El colector ha sido actualizado correctamente";
+      });
+  }
+
   getMarket(): Observable<Market> {
     const url = `${ this.urlAPI }` + 'Market/1';
     return this.http.get<Market>(url)
@@ -47,6 +56,7 @@ export class DatabaseService {
           data.basePurchasePrice, data.baseSalePrices, data.levelGrowth);
       });
   }
+
   getTownhall(): Observable<Townhall> {
     const url = `${ this.urlAPI }` + 'Townhall/1';
     return this.http.get<Townhall>(url)
@@ -55,6 +65,7 @@ export class DatabaseService {
           data.baseResourceLimit, data.baseUnitLimit, data.levelResGrowth, data.levelUnitGrowth);
       });
   }
+
   getArmory(): Observable<Armory> {
     const url = `${ this.urlAPI }` + 'Armory/1';
     return this.http.get<Armory>(url)
