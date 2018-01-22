@@ -24,7 +24,7 @@ export class DatabaseService {
 
   updateResource(resource: Resources): Observable<string> {
     const url = `${ this.urlAPIupdate }` + 'Resource/' + resource.id;
-    return this.http.put<string>(url, { resource })
+    return this.http.put(url, JSON.parse(JSON.stringify(resource)))
       .map(() => {
         return 'El recurso ha sido actualizado correctamente';
       });
@@ -42,7 +42,7 @@ export class DatabaseService {
 
   updateCollectors(collector: Collector): Observable<string> {
     const url = `${ this.urlAPIupdate }` + 'Collector/' + collector.id;
-    return this.http.put<string>(url, { collector })
+    return this.http.put(url, JSON.parse(JSON.stringify(collector)))
       .map(() => {
         return 'El colector ha sido actualizado correctamente';
       });
@@ -57,14 +57,6 @@ export class DatabaseService {
       });
   }
 
-  updateMarket(market: Market): Observable<string> {
-    const url = `${ this.urlAPIupdate }` + 'Market/1';
-    return this.http.put<string>(url, { market })
-      .map(() => {
-        return 'El mercado ha sido actualizado correctamente';
-      });
-  }
-
   getTownhall(): Observable<Townhall> {
     const url = `${ this.urlAPI }` + 'Townhall/1';
     return this.http.get<Townhall>(url)
@@ -76,7 +68,7 @@ export class DatabaseService {
 
   updateTownhall(townhall: Townhall): Observable<string> {
     const url = `${ this.urlAPIupdate }` + 'Townhall/1';
-    return this.http.put<string>(url, { townhall })
+    return this.http.put(url, JSON.parse(JSON.stringify(townhall)))
       .map(() => {
         return 'El ayuntamiento ha sido actualizado correctamente';
       });
