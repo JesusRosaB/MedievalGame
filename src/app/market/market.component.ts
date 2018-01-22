@@ -1,6 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { Market } from '../buildings/market';
-import { MarketService } from "./market.service";
+import { MarketService } from './market.service';
+import {Market} from '../buildings/market';
 
 @Component({
   selector: 'app-market',
@@ -11,16 +11,22 @@ import { MarketService } from "./market.service";
 export class MarketComponent implements OnInit, DoCheck {
   purchasePrices: number[];
   salePrices: number[];
-
-  constructor(private marketService: MarketService) { }
+  market: Market;
+  constructor(private marketService: MarketService) {}
 
   ngOnInit() {
+    this.market = this.marketService.market;
     this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
     this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
   }
 
   ngDoCheck() {
-    if (this.purchasePrices[0] !== this.marketService.getResourcePurchasePrice(0)) {
+    if (this.market !== this.marketService.market) {
+      this.market = this.marketService.market;
+      this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
+      this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
+    }
+    /*if (this.purchasePrices[0] !== this.marketService.getResourcePurchasePrice(0)) {
       this.purchasePrices[0] = this.marketService.getResourcePurchasePrice(0);
     }
     if (this.purchasePrices[1] !== this.marketService.getResourcePurchasePrice(1)) {
@@ -31,7 +37,7 @@ export class MarketComponent implements OnInit, DoCheck {
     }
     if (this.salePrices[1] !== this.marketService.getResourceSalePrice(1)) {
       this.salePrices[1] = this.marketService.getResourceSalePrice(1);
-    }
+    }*/
   }
 
   buyWood(quantity: number): void {

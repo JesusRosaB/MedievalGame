@@ -30,6 +30,7 @@ export class ArmoryService {
     return this.armory;
   }
   levelUp(armory: Armory) {
+    console.log('Llego');
     this.levelup.levelUp(armory);
   }
   getUpgradeCost(job: Job): number {

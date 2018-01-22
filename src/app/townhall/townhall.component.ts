@@ -12,7 +12,7 @@ export class TownhallComponent implements OnInit, DoCheck {
   ayuntamiento: Townhall;
   constructor(private townhall: TownhallService, private levelup: LevelUpBuildingService) {}
   ngOnInit() {
-    this.ayuntamiento = this.townhall.getTownhall();
+    this.ayuntamiento = this.townhall.getTownhall()
   }
   levelUp() {
     this.levelup.levelUp(this.ayuntamiento);

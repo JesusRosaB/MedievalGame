@@ -7,5 +7,4 @@ export class Exception implements ErrorHandler {
   handleError(error: Error) {
     this.msg.addMessage(error.message);
   }
-
 }
