@@ -44,7 +44,7 @@ export class DatabaseService {
     const url = `${ this.urlAPIupdate }` + 'Collector/' + collector.id;
     return this.http.put<string>(url, { collector })
       .map(() => {
-        return "El colector ha sido actualizado correctamente";
+        return 'El colector ha sido actualizado correctamente';
       });
   }
 
@@ -57,6 +57,14 @@ export class DatabaseService {
       });
   }
 
+  updateMarket(market: Market): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Market/1';
+    return this.http.put<string>(url, { market })
+      .map(() => {
+        return 'El mercado ha sido actualizado correctamente';
+      });
+  }
+
   getTownhall(): Observable<Townhall> {
     const url = `${ this.urlAPI }` + 'Townhall/1';
     return this.http.get<Townhall>(url)
@@ -66,11 +74,27 @@ export class DatabaseService {
       });
   }
 
+  updateTownhall(townhall: Townhall): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Townhall/1';
+    return this.http.put<string>(url, { townhall })
+      .map(() => {
+        return 'El ayuntamiento ha sido actualizado correctamente';
+      });
+  }
+
   getArmory(): Observable<Armory> {
     const url = `${ this.urlAPI }` + 'Armory/1';
     return this.http.get<Armory>(url)
       .map((data) => {
         return new Armory(data.level, data.upgradeCostWood, data.upgradeCostGold);
+      });
+  }
+
+  updateArmory(armory: Armory): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Armory/1';
+    return this.http.put<string>(url, { armory })
+      .map(() => {
+        return 'La armeria ha sido actualizado correctamente';
       });
   }
 }
