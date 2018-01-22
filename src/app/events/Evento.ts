@@ -1,4 +1,5 @@
-import {WoodService} from '../resources/WoodService';
+import { ArmyElement } from '../quarter/ArmyElement';
+import { WoodService } from '../resources/WoodService';
 import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
 
@@ -24,14 +25,19 @@ export class EventoRecursos extends Evento {
 }
 
 
-export class EventoAtaque extends Evento {
-  poder: number;
-  constructor(msg, power) {
+export class EventoEnfermedad extends Evento {
+  porcentaje: number;
+  constructor(msg, porcentaje) {
     super(msg);
-    this.poder = power;
+    this.porcentaje = porcentaje;
   }
-  realizar() {
+}
 
+export class EventoAsalto extends Evento {
+  grupo: ArmyElement;
+  constructor(msg, grupo) {
+    super(msg);
+    this.grupo = grupo;
   }
 }
 
