@@ -69,6 +69,7 @@ export class EventsService {
       let batalla: Battle = new Battle(this.army, e.grupo);
       batalla.execute();
       let resultado: Result = batalla.getResult();
+      console.log(resultado.description);
       if (!resultado.won) {
         this.Wood.loose(Math.floor(this.Wood.currentQuantity() / 2));
         this.Meat.loose(Math.floor(this.Meat.currentQuantity() / 2));
