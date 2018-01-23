@@ -61,5 +61,8 @@ export class MarketComponent implements OnInit, DoCheck {
   levelUp() {
     this.marketService.levelUp(this.market);
     this._databaseService.updateMarket(this.market).subscribe((s) => console.log(s));
+    this.market = this.marketService.market;
+    this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
+    this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
   }
 }

@@ -1,23 +1,13 @@
 
 .inline {
-	position: relative;
+    padding-left: 3%;
+    padding-right: 6%;
+    padding-bottom: 3%;
+    position: relative;
 	color: black;
 	font-weight: bold;
 	background-color: #D3E5E5;
     border: 2px solid #e95420;
-    width: 260px;
-    height: 210px;
-    left: -30%;
-}
-
-#mercado {
-	position: relative;
-	color: black;
-	font-weight: bold;
-	background-color: #efb73e;
-    border: 2px solid #e95420;
-    width: 260px;
-    height: 210px;
-    left: -30%;
-    margin-bottom: 20px;
+    width: auto;
+    height: auto;
 }
