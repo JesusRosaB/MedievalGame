@@ -57,6 +57,14 @@ export class DatabaseService {
       });
   }
 
+  updateMarket(market :Market): Observable<string> {
+    const url = `${this.urlAPIupdate}` + 'Market/1';
+    return this.http.put(url, JSON.parse(JSON.stringify(market)))
+      .map(() => {
+        return 'El mercado ha sido actualizado correctamente';
+      });
+  }
+
   getTownhall(): Observable<Townhall> {
     const url = `${ this.urlAPIupdate }` + 'Townhall/1';
     return this.http.get<Townhall>(url)

@@ -1,6 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { MarketService } from './market.service';
-import {Market} from '../buildings/market';
+import { Market } from '../buildings/market';
+import { DatabaseService } from '../baseDeDatos/database.service';
+
 
 @Component({
   selector: 'app-market',
@@ -12,7 +14,7 @@ export class MarketComponent implements OnInit, DoCheck {
   purchasePrices: number[];
   salePrices: number[];
   market: Market;
-  constructor(private marketService: MarketService) {}
+  constructor(private marketService: MarketService, private _databaseService: DatabaseService) {}
 
   ngOnInit() {
     this.market = this.marketService.market;
@@ -54,5 +56,10 @@ export class MarketComponent implements OnInit, DoCheck {
 
   sellMeat(quantity: number) {
     this.marketService.sellMeat(quantity);
+  }
+
+  levelUp() {
+    this.marketService.levelUp(this.market);
+    this._databaseService.updateMarket(this.market).subscribe((s) => console.log(s));
   }
 }

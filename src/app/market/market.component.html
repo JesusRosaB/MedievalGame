@@ -1,6 +1,13 @@
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown" class="inline">
+  <div class="col-sm" id="market">
+    <h3>Mercado</h3>
+    <h5>Nivel: {{market.level}}</h5>
+    <h5>Coste de Mejora (Madera): {{market.upgradeCostWood[market.level]}}</h5>
+    <h5>Coste de Mejora (Oro): {{market.upgradeCostGold[market.level]}}</h5>
+    <button type="button" class="btn btn-primary" (click)="levelUp(armory)">Mejorar Mercado</button>
+  </div>
   <div><button type="button" class="btn btn-primary" (click)="this.buyMeat(10)">Comprar 10 Carne ({{this.purchasePrices[0]*10}} Oro)</button></div>
   <div><button type="button" class="btn btn-warning" (click)="this.buyWood(10)">Comprar 10 Madera ({{this.purchasePrices[1]*10}} Oro)</button></div>
-  <div><button type="button" class="btn btn-info" (click)="this.sellMeat(10)">Vender 10 Carne ({{this.salePrices[1]*10}} Oro)</button></div>
+  <div><button type="button" class="btn btn-info" (click)="this.sellMeat(10)">Vender 10 Carne ({{this.salePrices[0]*10}} Oro)</button></div>
   <div><button type="button" class="btn btn-success" (click)="this.sellWood(10)">Vender 10 Madera ({{this.salePrices[1]*10}} Oro)</button></div>
 </div>

@@ -5,12 +5,13 @@ import { GoldService } from '../resources/GoldService';
 import { Market } from '../buildings/market';
 import {Resources} from '../resources/resources';
 import {DatabaseService} from '../baseDeDatos/database.service';
+import { LevelUpBuildingService } from '../buildings/levelUpBuilding.service';
 
 @Injectable()
 export class MarketService {
   market: Market;
 
-  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private databaseService: DatabaseService) {
+  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private databaseService: DatabaseService, private levelup: LevelUpBuildingService) {
     this.databaseService.getMarket().subscribe((m) => {
       console.log(m);
       this.market = m;
@@ -18,18 +19,23 @@ export class MarketService {
     });
   }
 
+  levelUp(market: Market) {
+    console.log('Llego');
+    this.levelup.levelUp(market);
+  }
+
   getResourcePurchasePrice(resource) {
-    return this.market.basePurchasePrice[resource];
+    return this.market.basePurchasePrice[resource] * (1 - (this.market.level-1) * this.market.levelGrowth);
   }
   getResourceSalePrice(resource) {
-    return this.market.baseSalePrices[resource];
+    return this.market.baseSalePrices[resource] / (1 - (this.market.level - 1) * this.market.levelGrowth);;
   }
   getPurchasePrices(): number[] {
-    let truePrices: number[] = this.market.basePurchasePrice;
+    /*let truePrices: number[] = this.market.basePurchasePrice;
     for (let i: number = 0; i < truePrices.length; i++) {
       truePrices[i] *= this.market.saleMod[i];
-    }
-    return truePrices;
+    }*/
+    return this.market.basePurchasePrice;
     /*
       this.truePrices = this.basePurchasePrice;
       for (let i: number = 0; i < this.truePrices.length; i++){
@@ -40,15 +46,15 @@ export class MarketService {
       return this.truePrices;*/
   }
   getSalePrices(): number[] {
-    let truePrices :number[] = this.market.baseSalePrices;
+    /*let truePrices :number[] = this.market.baseSalePrices;
     for (let i: number = 0; i < truePrices.length; i++) {
       truePrices[i] *= this.market.saleMod[i];
-    }
-    return truePrices;
+    }*/
+    return this.market.baseSalePrices;
   }
 
   buyWood(quantity: number): void {
-    let price: number = this.getPurchasePrices()[0] * quantity;
+    let price: number = this.getResourcePurchasePrice(0) * quantity;
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -56,7 +62,7 @@ export class MarketService {
   }
 
   buyMeat(quantity: number): void {
-    let price: number = this.getPurchasePrices()[1] * quantity;
+    let price: number = this.getResourcePurchasePrice(1) * quantity;
     try {
       this.gold.spend(price);
     } catch (e) { throw new Error('Oro insuficiente.'); }
@@ -64,7 +70,7 @@ export class MarketService {
   }
 
   sellWood(quantity: number): void {
-    let price: number = this.getSalePrices()[0] * quantity;
+    let price: number = this.getResourceSalePrice(0) * quantity;
     try {
       this.wood.spend(quantity);
     } catch (e) { throw new Error('Madera insuficiente.'); }
@@ -72,7 +78,7 @@ export class MarketService {
   }
 
   sellMeat(quantity: number): void {
-    let price: number = this.getSalePrices()[1] * quantity;
+    let price: number = this.getResourceSalePrice(1) * quantity;
     try {
       this.meat.spend(quantity);
     } catch (e) { throw new Error('Carne insuficiente.'); }
