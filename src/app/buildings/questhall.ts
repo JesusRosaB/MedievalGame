@@ -20,6 +20,6 @@ export class QuestHall extends Building {
   }
 
   completeQuest(id: number): void {
-    this.quests[id].completed = true;;
+    this.quests[id].completed = true;
   }
 }

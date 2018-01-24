@@ -10,6 +10,7 @@ import { Resources } from "../resources/resources";
 export class Quest {
     private id: number;
     private enemyGroup: ArmyElement;
+    private enemyGroup_backup: ArmyElement;
    // private questTime: number;
     private reward: number[];
     private name: string;
@@ -19,6 +20,7 @@ export class Quest {
     constructor(id: number, enemyGroup: ArmyElement, reward: number[], name: string, description: string) {
       this.id = id;
       this.enemyGroup = enemyGroup;
+      this.enemyGroup_backup = enemyGroup;
       this.reward = reward;
       this.name = name;
       this.description = description;
@@ -63,5 +65,10 @@ export class Quest {
       return questBattle.getResult();
       //squad.setBusy(false);
 
+    }
+
+    public reset(): void {
+      this.enemyGroup = this.enemyGroup_backup;
+      this.completed = false;
     }
 }

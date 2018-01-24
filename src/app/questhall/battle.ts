@@ -18,11 +18,15 @@ export class Result {
 export class Battle {
   private group1: ArmyElement;
   private group2: ArmyElement;
+  private group1_backup: ArmyElement;
+  private group2_backup: ArmyElement;
   private result: Result;
 
   constructor(group1: ArmyElement, group2: ArmyElement) {
     this.group1 = group1;
     this.group2 = group2;
+    this.group1_backup = group1;
+    this.group2_backup = group2;
     this.result = new Result();
   }
 
@@ -39,14 +43,14 @@ export class Battle {
     this.result.won = !this.group2.isAlive();
   }
 
+  public undo(): void {
+    this.group1 = this.group1_backup;
+    this.group2 = this.group2_backup;
+    this.result = new Result();
+  }
+
   public getResult(): Result {
     return this.result;
   }
 }
 
-/*export class Result {
-  won: boolean;
-  description: string;
-
-  constructor() {}
-}*/

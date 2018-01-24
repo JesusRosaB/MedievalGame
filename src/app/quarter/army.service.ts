@@ -1,6 +1,7 @@
 import {ArmyElement} from './ArmyElement';
 import {Injectable} from '@angular/core';
 
+//Patrón Composite
 @Injectable()
 export class ArmyService {
 

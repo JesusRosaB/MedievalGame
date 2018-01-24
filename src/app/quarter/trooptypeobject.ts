@@ -1,5 +1,6 @@
 import {ArmyElement} from './ArmyElement';
 
+//Patrón TypeObject
 export class Job {
     private id: number;
     private jobName: string;
@@ -46,6 +47,7 @@ export class Job {
       this.level += 1;
     }
 
+    //Patrón FactoryMethod
     newTroop(): Troop {
         return new Troop(this);
     }
@@ -62,6 +64,7 @@ export class Job {
     }
 }
 
+//Patrón Composite
 export class Troop extends ArmyElement{
     private id: number;
     private job: Job;
