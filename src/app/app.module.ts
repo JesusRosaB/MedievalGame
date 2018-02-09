@@ -33,6 +33,7 @@ import { QuestHallService } from './questhall/questhall.service';
 import {DatabaseService} from './baseDeDatos/database.service';
 import {MarketService} from './market/market.service';
 import {ArmoryService} from './armory/armory.service';
+import {DatabaseResourceService} from './baseDeDatos/databaseResource.service';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import {ArmoryService} from './armory/armory.service';
     QuestHallService,
     DatabaseService,
     MarketService,
-    ArmoryService
+    ArmoryService,
+    DatabaseResourceService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

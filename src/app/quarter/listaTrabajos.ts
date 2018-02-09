@@ -24,8 +24,8 @@ export class ListaTrabajos {
     let cont = 0;
     while (cont < quantity) {
       try {
-        this.meat.spend(this.trabajos[id].getMeatCost());
-        this.gold.spend(this.trabajos[id].getGoldCost());
+        this.meat.spend(this.trabajos[id].meatCost[this.trabajos[id].level]);
+        this.gold.spend(this.trabajos[id].goldCost[this.trabajos[id].level]);
         this.army.addComponent(this.trabajos[id].newTroop());
         ++cont;
       } catch (e) {

@@ -18,7 +18,7 @@ export class CollectorsService {
     this.databaseCollector.getCollectors().subscribe((collectors) => {
       collectors.forEach((c) => this.collectors.push(c));
     });
-    this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.yieldValue(this.collectors[0])));
+    // this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.yieldValue(this.collectors[0])));
     this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.yieldValue(this.collectors[1])));
     this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.yieldValue(this.collectors[2])));
   }

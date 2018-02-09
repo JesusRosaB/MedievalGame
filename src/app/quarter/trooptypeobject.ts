@@ -1,17 +1,17 @@
 import {ArmyElement} from './ArmyElement';
 
 export class Job {
-    private id: number;
-    private jobName: string;
-    private level: number;
+     id: number;
+     jobName: string;
+     level: number;
 
-    private power: number[];
-    private health: number;
-    private goldCost: number[];
-    private meatCost: number[];
-    private upgradeCost: number[];
+     power: number[];
+     health: number;
+     goldCost: number[];
+     meatCost: number[];
+     upgradeCost: number[];
 
-    getId(): number {
+    /*getId(): number {
         return this.id;
     }
     getJobName(): string {
@@ -44,7 +44,7 @@ export class Job {
 
     levelUp(): void {
       this.level += 1;
-    }
+    }*/
 
     newTroop(): Troop {
         return new Troop(this);
@@ -62,24 +62,24 @@ export class Job {
     }
 }
 
-export class Troop extends ArmyElement{
-    private id: number;
-    private job: Job;
-    private health: number;
-    
+export class Troop extends ArmyElement {
+     id: number;
+     job: Job;
+     health: number;
+
     constructor(job: Job) {
         super();
         this.job = job;
-        this.health = job.getHealth();
+        this.health = job.health;
     }
-    getId(): number {
+    /*getId(): number {
         return this.id;
     }
     getJobId(): number {
         return this.job.getId();
     }
 
-    takeDamage(damage :number) {
+    takeDamage(damage: number) {
       this.health -= damage;
       if (this.health < 0) {
         this.health = 0;
@@ -108,5 +108,5 @@ export class Troop extends ArmyElement{
 
     getMaxHealth(): number {
       return this.job.getHealth();
-    }
+    }*/
 }

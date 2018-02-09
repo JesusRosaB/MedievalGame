@@ -14,16 +14,16 @@ export class ArmoryService {
     this.databaseService.getArmory().subscribe((a) => this.armory = a);
   }
   upgradeJob(id: number): void {
-    if (this.listaTrabajos.trabajos[id].getLevel() >= this.armory.level) {
-      throw new Error("Nivel de mejora no puede superar el nivel de la armería.")
+    if (this.listaTrabajos.trabajos[id].level /*.getLevel()*/ >= this.armory.level) {
+      throw new Error('Nivel de mejora no puede superar el nivel de la armería.');
     }
-    let price = this.listaTrabajos.trabajos[id].getUpgradeCost();
+    let price = this.listaTrabajos.trabajos[id].upgradeCost[this.listaTrabajos.trabajos[id].level]; /*.getUpgradeCost();*/
     try {
       this.wood.spend(price);
     } catch (e) {
       throw new Error('Madera insuficiente para mejorar.');
     }
-    this.listaTrabajos.trabajos[id].levelUp();
+    this.listaTrabajos.trabajos[id].level++; /*.levelUp();*/
   }
 
   getArmory() {

@@ -4,11 +4,12 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class ArmyService {
 
-  private members: ArmyElement[] = [];
-  private counter: number;
+  members: ArmyElement[] = [];
+  counter: number;
 
   constructor() {
-    this.counter = 0;}
+    this.counter = 0;
+  }
 
   public getPower(): number {
     let power = 0;
@@ -61,8 +62,8 @@ export class ArmyService {
   public getCount() {
     return this.counter;
   }
- 
-  
+
+
 
   /*public setBusy(): void {
     for (let m of this.members) {
