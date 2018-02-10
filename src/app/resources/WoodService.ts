@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {Resources} from './resources';
 import {TownhallService} from '../townhall/townhall.service';
 import {DatabaseResourceService} from '../baseDeDatos/databaseResource.service';
-// import {DatabaseService} from '../baseDeDatos/database.service';
-
 
 @Injectable()
 export class WoodService {

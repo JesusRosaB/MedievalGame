@@ -5,10 +5,11 @@ import {Injectable} from '@angular/core';
 import {Resources} from './resources';
 import {TownhallService} from '../townhall/townhall.service';
 import {DatabaseService} from '../baseDeDatos/database.service';
+import {DatabaseResourceService} from '../baseDeDatos/databaseResource.service';
 @Injectable()
 export class MeatService {
   Meat: Resources;
-  constructor(private townhall: TownhallService, private databaseResource: DatabaseService) {
+  constructor(private townhall: TownhallService, private databaseResource: DatabaseResourceService) {
     this.databaseResource.getResource(2).subscribe((resource) => this.Meat = resource);
   }
   currentQuantity() {

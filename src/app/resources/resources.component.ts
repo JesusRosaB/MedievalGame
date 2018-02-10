@@ -4,6 +4,7 @@ import {MeatService} from './MeatService';
 import {GoldService} from './GoldService';
 import { DatabaseService } from '../baseDeDatos/database.service';
 import { Resources } from './resources';
+import {DatabaseResourceService} from '../baseDeDatos/databaseResource.service';
 
 @Component({
   selector: 'app-resources',
@@ -13,7 +14,7 @@ import { Resources } from './resources';
 
 export class ResourcesComponent implements OnInit, DoCheck {
   recursos: number[] = [];
-  constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService, private _databaseService: DatabaseService) {}
+  constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService, private _databaseService: DatabaseResourceService) {}
   ngOnInit() {
     this.recursos.push(this.Wood.currentQuantity(), this.Meat.currentQuantity(), this.Gold.currentQuantity());
   }
