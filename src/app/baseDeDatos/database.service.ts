@@ -7,13 +7,36 @@ import {Collector} from '../buildings/Collector';
 import {Market} from '../buildings/market';
 import {Townhall} from '../buildings/townhall';
 import {Armory} from '../buildings/armory';
+import {ArmyService} from '../quarter/army.service';
+import {Troop} from '../quarter/trooptypeobject';
+
 
 @Injectable()
 export class DatabaseService {
-  //urlAPI = 'https://5a60754811654a0012d3012f.mockapi.io/';
+  // urlAPI = 'https://5a60754811654a0012d3012f.mockapi.io/';
   urlAPIupdate = 'https://5a65b167acd74f00128c607d.mockapi.io/';
   collectors: Collector[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private army: ArmyService) {}
+  get(url: string): Observable<any[]> {
+    return this.http.get<any[]>(url)
+      .map((data) => {
+        return data;
+      });
+  }
+  getOne(url: string, id: number): Observable<any> {
+    console.log('LlegoGetOne');
+    return this.http.get<any>(url + '/' + id)
+      .map((data) => {
+        return data;
+      });
+  }
+  update(url: string, id: number, data: Object): Observable<void> {
+    return this.http.put(url + '/' + id, JSON.parse(JSON.stringify(data)))
+      .map(() => {
+        // return 'El recurso ha sido actualizado correctamente';
+      });
+  }
+
   getResource(id): Observable<Resources> {
     const url = `${ this.urlAPIupdate }` + 'Resource/' + id;
     return this.http.get<Resources>(url)
@@ -57,7 +80,7 @@ export class DatabaseService {
       });
   }
 
-  updateMarket(market :Market): Observable<string> {
+  updateMarket(market: Market): Observable<string> {
     const url = `${this.urlAPIupdate}` + 'Market/1';
     return this.http.put(url, JSON.parse(JSON.stringify(market)))
       .map(() => {
@@ -94,6 +117,22 @@ export class DatabaseService {
     const url = `${ this.urlAPIupdate }` + 'Armory/1';
     console.log(armory);
     return this.http.put(url, JSON.parse(JSON.stringify(armory)))
+      .map(() => {
+        return 'La armeria ha sido actualizado correctamente';
+      });
+  }
+  getArmy(): Observable<void> {
+    const url = `${ this.urlAPIupdate }` + 'Armory/1';
+    return this.http.get<Troop[]>(url)
+      .map((data) => {
+        data.forEach((t) => this.army.addComponent(t));
+      });
+  }
+
+  updateArmy(): Observable<string> {
+    const url = `${ this.urlAPIupdate }` + 'Armory/1';
+
+    return this.http.put(url, this.army.members.forEach((m) => JSON.parse(JSON.stringify(m))))
       .map(() => {
         return 'La armeria ha sido actualizado correctamente';
       });

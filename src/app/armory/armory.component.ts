@@ -23,7 +23,7 @@ export class ArmoryComponent implements OnInit, DoCheck {
   }
 
   upgradeJob(job: Job) {
-    this.armoryService.upgradeJob(job.getId());
+    this.armoryService.upgradeJob(job.id);
   }
 
   levelUp() {

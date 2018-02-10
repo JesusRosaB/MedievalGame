@@ -10,6 +10,10 @@ import {DatabaseService} from '../baseDeDatos/database.service';
  * Created by jose on 16/12/17.
  */
 
+export interface Observer {
+  actualizar();
+}
+
 @Injectable()
 export class CollectorsService {
   private collectors: Collector[] = [];
@@ -18,9 +22,7 @@ export class CollectorsService {
     this.databaseCollector.getCollectors().subscribe((collectors) => {
       collectors.forEach((c) => this.collectors.push(c));
     });
-    this.timer.resourcesTimer.subscribe(() => this.Wood.increase(this.yieldValue(this.collectors[0])));
-    this.timer.resourcesTimer.subscribe(() => this.Meat.increase(this.yieldValue(this.collectors[1])));
-    this.timer.resourcesTimer.subscribe(() => this.Gold.increase(this.yieldValue(this.collectors[2])));
+    this.timer.addObserver(this);
   }
   getCollectors() {
     return this.collectors;
@@ -30,5 +32,10 @@ export class CollectorsService {
   }
   yieldValue(collector): number {
     return collector.baseYield * collector.level;
+  }
+  actualizar() {
+    this.Wood.increase(this.yieldValue(this.collectors[0]));
+    this.Meat.increase(this.yieldValue(this.collectors[1]));
+    this.Gold.increase(this.yieldValue(this.collectors[2]));
   }
 }
