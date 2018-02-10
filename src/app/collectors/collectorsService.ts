@@ -6,6 +6,8 @@ import {MeatService} from '../resources/MeatService';
 import {GoldService} from '../resources/GoldService';
 import {LevelUpBuildingService} from '../buildings/levelUpBuilding.service';
 import {DatabaseService} from '../baseDeDatos/database.service';
+import {DatabaseCollectorsService} from '../baseDeDatos/databaseCollectors.service';
+import {delay} from 'rxjs/operators';
 /**
  * Created by jose on 16/12/17.
  */
@@ -18,11 +20,11 @@ export interface Observer {
 export class CollectorsService {
   private collectors: Collector[] = [];
   constructor(private Wood: WoodService, private Meat: MeatService, private Gold: GoldService,
-  private levelup: LevelUpBuildingService, private timer: TimerService, private databaseCollector: DatabaseService) {
+  private levelup: LevelUpBuildingService, private timer: TimerService, private databaseCollector: DatabaseCollectorsService) {
     this.databaseCollector.getCollectors().subscribe((collectors) => {
       collectors.forEach((c) => this.collectors.push(c));
     });
-    this.timer.addObserver(this);
+    this.timer.addObserverResource(this);
   }
   getCollectors() {
     return this.collectors;

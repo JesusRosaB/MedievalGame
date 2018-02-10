@@ -34,6 +34,10 @@ import {DatabaseService} from './baseDeDatos/database.service';
 import {MarketService} from './market/market.service';
 import {ArmoryService} from './armory/armory.service';
 import {DatabaseResourceService} from './baseDeDatos/databaseResource.service';
+import {DatabaseCollectorsService} from './baseDeDatos/databaseCollectors.service';
+import {DatabaseTownhallService} from './baseDeDatos/databaseTownhall.service';
+import {DatabaseArmoryService} from './baseDeDatos/databaseArmory.service';
+import {DatabaseMarketService} from './baseDeDatos/databaseMarket.service';
 
 
 @NgModule({
@@ -74,7 +78,11 @@ import {DatabaseResourceService} from './baseDeDatos/databaseResource.service';
     DatabaseService,
     MarketService,
     ArmoryService,
-    DatabaseResourceService
+    DatabaseResourceService,
+    DatabaseCollectorsService,
+    DatabaseTownhallService,
+    DatabaseArmoryService,
+    DatabaseMarketService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

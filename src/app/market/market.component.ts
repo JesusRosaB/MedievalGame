@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { MarketService } from './market.service';
 import { Market } from '../buildings/market';
 import { DatabaseService } from '../baseDeDatos/database.service';
+import {DatabaseMarketService} from '../baseDeDatos/databaseMarket.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class MarketComponent implements OnInit, DoCheck {
   purchasePrices: number[];
   salePrices: number[];
   market: Market;
-  constructor(private marketService: MarketService, private _databaseService: DatabaseService) {}
+  constructor(private marketService: MarketService, private _databaseService: DatabaseMarketService) {}
 
   ngOnInit() {
     this.market = this.marketService.market;

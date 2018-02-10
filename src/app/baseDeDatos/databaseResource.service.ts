@@ -10,14 +10,14 @@ export class DatabaseResourceService {
     {id: 1, name: 'Wood', quantity: 500},
     {id: 2, name: 'Meat', quantity: 500},
     {id: 3, name: 'Gold', quantity: 500}
-  ]
+  ];
   constructor(private databaseService: DatabaseService) {}
   getResource(id): Observable<Resources> {
     return Observable.create((observer) => {
       this.databaseService.getOne(this.urlAPIupdate, id).subscribe((data) => {
         this.resources[id - 1].quantity = data.quantity;
+        observer.next(this.resources[id - 1]);
       });
-      observer.next(this.resources[id - 1]);
     });
   }
   updateResource(resource: Resources): Observable<void> {

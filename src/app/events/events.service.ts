@@ -8,16 +8,20 @@ import {GoldService} from '../resources/GoldService';
 import {ArmyService} from '../quarter/army.service'
 import { Result, Battle } from '../questhall/battle';
 import { Troop, Job } from '../quarter/trooptypeobject';
+import {Observer} from '../collectors/collectorsService';
 
 @Injectable()
-export class EventsService {
+export class EventsService implements Observer {
   event: any;// = new EventoRecursos('', 0);
 
   constructor(private timer: TimerService, private messages: MessagesService, private Wood: WoodService,
   private Meat: MeatService, private Gold: GoldService, private army: ArmyService) {
-    this.timer.eventsTimer.subscribe(() => this.lanzarEvento());
+    this.timer.addObserverEvent(this);
   }
 
+  actualizar() {
+    this.lanzarEvento();
+  }
   lanzarEvento() {
     const resultado = Math.random() * 20;
     if (resultado <= 10) {

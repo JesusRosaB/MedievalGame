@@ -6,12 +6,14 @@ import { Market } from '../buildings/market';
 import {Resources} from '../resources/resources';
 import {DatabaseService} from '../baseDeDatos/database.service';
 import { LevelUpBuildingService } from '../buildings/levelUpBuilding.service';
+import {DatabaseMarketService} from '../baseDeDatos/databaseMarket.service';
 
 @Injectable()
 export class MarketService {
   market: Market;
 
-  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService, private databaseService: DatabaseService, private levelup: LevelUpBuildingService) {
+  constructor(private wood: WoodService, private meat: MeatService, private gold: GoldService,
+              private databaseService: DatabaseMarketService, private levelup: LevelUpBuildingService) {
     this.databaseService.getMarket().subscribe((m) => {
       console.log(m);
       this.market = m;
@@ -25,10 +27,10 @@ export class MarketService {
   }
 
   getResourcePurchasePrice(resource) {
-    return this.market.basePurchasePrice[resource] * (1 - (this.market.level-1) * this.market.levelGrowth);
+    return this.market.basePurchasePrice[resource] * (1 - (this.market.level - 1) * this.market.levelGrowth);
   }
   getResourceSalePrice(resource) {
-    return this.market.baseSalePrices[resource] / (1 - (this.market.level - 1) * this.market.levelGrowth);;
+    return this.market.baseSalePrices[resource] / (1 - (this.market.level - 1) * this.market.levelGrowth);
   }
   getPurchasePrices(): number[] {
     /*let truePrices: number[] = this.market.basePurchasePrice;

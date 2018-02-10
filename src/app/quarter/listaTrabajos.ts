@@ -34,7 +34,8 @@ export class ListaTrabajos {
       }
     }
   }
-  /*getSoldado(quantity) {
+  /*
+  getSoldado(quantity) {
     this.efectuarCompra(quantity, 0);
   }
   getArquero(quantity) {

@@ -12,7 +12,7 @@ export class Job {
      meatCost: number[];
      upgradeCost: number[];
 
-    /*getId(): number {
+    getId(): number {
         return this.id;
     }
     getJobName(): string {
@@ -45,7 +45,7 @@ export class Job {
 
     levelUp(): void {
       this.level += 1;
-    }*/
+    }
 
     // Patrón FactoryMethod
     newTroop(): Troop {
@@ -75,7 +75,7 @@ export class Troop extends ArmyElement{
         this.job = job;
         this.health = job.health;
     }
-    /*getId(): number {
+    getId(): number {
         return this.id;
     }
     getJobId(): number {
@@ -111,5 +111,5 @@ export class Troop extends ArmyElement{
 
     getMaxHealth(): number {
       return this.job.getHealth();
-    }*/
+    }
 }

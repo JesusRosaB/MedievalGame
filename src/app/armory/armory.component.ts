@@ -4,6 +4,7 @@ import { Job } from '../quarter/trooptypeobject';
 import { ListaTrabajos } from '../quarter/listaTrabajos';
 import { Armory } from '../buildings/armory';
 import { DatabaseService } from '../baseDeDatos/database.service';
+import {DatabaseArmoryService} from '../baseDeDatos/databaseArmory.service';
 
 @Component({
   selector: 'app-armory',
@@ -15,7 +16,7 @@ export class ArmoryComponent implements OnInit, DoCheck {
   trabajos: Job[];
   armory: Armory;
 
-  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService, private _databaseService: DatabaseService) {}
+  constructor(private lista: ListaTrabajos, private armoryService: ArmoryService, private _databaseService: DatabaseArmoryService) {}
 
   ngOnInit() {
     this.armory = this.armoryService.getArmory();

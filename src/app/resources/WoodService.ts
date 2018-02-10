@@ -8,7 +8,6 @@ export class WoodService {
   private Wood: Resources;
   constructor(private townhall: TownhallService, private databaseResource: DatabaseResourceService) {
     this.databaseResource.getResource(1).subscribe((data) => {
-      console.log(data);
       this.Wood = data;
     });
   }

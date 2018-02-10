@@ -4,13 +4,13 @@ import { WoodService } from '../resources/WoodService';
 import { Armory } from '../buildings/armory';
 import { LevelUpBuildingService } from '../buildings/levelUpBuilding.service';
 import {Job} from '../job';
-import {DatabaseService} from '../baseDeDatos/database.service';
+import {DatabaseArmoryService} from '../baseDeDatos/databaseArmory.service';
 
 @Injectable()
 export class ArmoryService {
   armory: Armory;
   constructor(private listaTrabajos: ListaTrabajos, private wood: WoodService, private levelup: LevelUpBuildingService,
-              private databaseService: DatabaseService) {
+              private databaseService: DatabaseArmoryService) {
     this.databaseService.getArmory().subscribe((a) => this.armory = a);
   }
   upgradeJob(id: number): void {
