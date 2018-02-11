@@ -72,7 +72,8 @@ export class MarketService {
   }
 
   sellWood(quantity: number): void {
-    let price: number = this.getResourceSalePrice(0) * quantity;
+    let price: number = Math.round(this.getResourceSalePrice(0) * quantity);
+    console.log("precio venta madera "+price);
     try {
       this.wood.spend(quantity);
     } catch (e) { throw new Error('Madera insuficiente.'); }
@@ -80,7 +81,8 @@ export class MarketService {
   }
 
   sellMeat(quantity: number): void {
-    let price: number = this.getResourceSalePrice(1) * quantity;
+    let price: number = Math.round(this.getResourceSalePrice(1) * quantity);
+    console.log("precio de venta carne "+price);
     try {
       this.meat.spend(quantity);
     } catch (e) { throw new Error('Carne insuficiente.'); }

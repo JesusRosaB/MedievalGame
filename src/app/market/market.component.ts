@@ -20,14 +20,14 @@ export class MarketComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.market = this.marketService.market;
     this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
-    this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
+    this.salePrices = [Math.round(this.marketService.getResourceSalePrice(0)), Math.round(this.marketService.getResourceSalePrice(1))];
   }
 
   ngDoCheck() {
     if (this.market !== this.marketService.market) {
       this.market = this.marketService.market;
       this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
-      this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
+      this.salePrices = [Math.round(this.marketService.getResourceSalePrice(0)), Math.round(this.marketService.getResourceSalePrice(1))];
     }
     /*if (this.purchasePrices[0] !== this.marketService.getResourcePurchasePrice(0)) {
       this.purchasePrices[0] = this.marketService.getResourcePurchasePrice(0);
@@ -64,6 +64,6 @@ export class MarketComponent implements OnInit, DoCheck {
     this._databaseService.updateMarket(this.market).subscribe((s) => console.log(s));
     this.market = this.marketService.market;
     this.purchasePrices = [this.marketService.getResourcePurchasePrice(0), this.marketService.getResourcePurchasePrice(1)];
-    this.salePrices = [this.marketService.getResourceSalePrice(0), this.marketService.getResourceSalePrice(1)];
+    this.salePrices = [Math.round(this.marketService.getResourceSalePrice(0)), Math.round(this.marketService.getResourceSalePrice(1))];
   }
 }
