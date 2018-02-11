@@ -6,14 +6,14 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class DatabaseMarketService {
   urlAPIupdate = 'https://5a65b167acd74f00128c607d.mockapi.io/Market';
-  market: Market = {level: 1, name: 'Market', upgradeCostWood: [1, 1, 1, 1, 1], upgradeCostGold: [1, 1, 1, 1, 1],
-    basePurchasePrice: [10, 10], baseSalePrices: [8, 8], levelGrowth: 2, purchaseMod: [1, 1], saleMod: [1, 1]};
+  market: Market = {level: 1, name: 'market', upgradeCostWood: [1, 1, 1, 1, 1], upgradeCostGold: [1, 1, 1, 1, 1],
+    basePurchasePrice: [2, 2], baseSalePrices: [0.5, 0.5], levelGrowth: 0.1, purchaseMod: [1, 1], saleMod: [1, 1]};
   constructor(private databaseService: DatabaseService) {}
   getMarket(): Observable<Market> {
     return Observable.create((observer) => {
       this.databaseService.getOne(this.urlAPIupdate, 1).subscribe((data) => {
         this.market = new Market(data.level, data.upgradeCostWood, data.upgradeCostGold,
-          data.basePurchasePrices, data.baseSalePrices, data.levelGrowth);
+          data.basePurchasePrice, data.baseSalePrices, data.levelGrowth);
         observer.next(this.market);
       });
     });

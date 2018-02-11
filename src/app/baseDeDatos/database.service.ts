@@ -36,7 +36,7 @@ export class DatabaseService {
       });
   }
 
-  getMarket(): Observable<Market> {
+  /*getMarket(): Observable<Market> {
     const url = `${ this.urlAPIupdate }` + 'Market/1';
     return this.http.get<Market>(url)
       .map((data) => {
@@ -51,7 +51,7 @@ export class DatabaseService {
       .map(() => {
         return 'El mercado ha sido actualizado correctamente';
       });
-  }
+  }*/
   /*getArmy(): Observable<void> {
     const url = `${ this.urlAPIupdate }` + 'Armory/1';
     return this.http.get<Troop[]>(url)
