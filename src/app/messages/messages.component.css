@@ -6,5 +6,7 @@
   background-color: #D3E5E5;
   border: 2px solid #e95420;
   width: auto; height: auto;
-  text-align: center
+  text-align: center;
+  padding-right: 5px;
+  padding-left: 20px;
 }
