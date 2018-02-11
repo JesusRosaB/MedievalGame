@@ -2,7 +2,7 @@
     <dl *ngFor="let collector of collectors">
       <div class="row" class="inline">
         <div class="col-sm">
-          <h3>Name: {{collector.name}}</h3>
+          <h3>{{collector.name}}</h3>
         </div>
         <div class="col-sm">
           <h5>Produccion: {{this.yieldValue(collector)}} por segundo.</h5>
